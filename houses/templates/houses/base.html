@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Remodelación virtual</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'houses/style.css' %}">
+        <script src="{% static 'houses/main.js' %}"></script>
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="logo"><img src="{% static 'houses/logoverde.png' %}" alt=""></div>
+            <div class="caption">Remodelación Virtual</div>
+        </div>
+        {% block content %}
+            <div class="barrio">Chicó</div>
+        {% endblock %}
+    </body>
+</html>

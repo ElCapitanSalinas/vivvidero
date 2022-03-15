@@ -1,0 +1,343 @@
+<!-- CSS CUSTOM -->
+{% extends 'houses/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    {% if area == "ktc" %}
+        <div class="spacer"></div>
+        <div class="info-upload">
+            <div class="form-title">Perfecto {{ name }}, iniciemos con nuestro proceso de remodelación</div>
+            <div class="form-caption">Ayudanos adjuntando la información a continuación</div>
+            <div class="progress-bar">
+                <div class="circle etapa1 checked"><i class="fas fa-check"></i></div>
+                <!-- <div class="circle etapa1"><i class="fas fa-check"></i></div> -->
+                <div class="line-1 checked"></div>
+                <div class="circle etapa2">2</div>
+                <div class="line-2"></div>
+                <div class="circle etapa3">3</div>
+            </div>
+
+            <div class="progress-bar" style="margin-top: -1vh;">
+                <div class="text etapa1" style="transform: translate(-40%, 0);">Información del apartamento</div>
+                <div class="text etapa2">Subir imágenes</div>
+                <div class="text etapa3" style="transform: translate(40%, 0);">Informe y descarga</div>
+            </div>
+
+                <div class="etapa-2">
+                    <form  method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                    <div class="etapa-title">SUBE AQUÍ TU IMAGEN</div>
+                    <div class="upload-steps">
+                        <div class="upload-column">
+                            <div class="text-box">
+                                <div class="arrow"></div>
+                                <div class="text-box-title">Ten en cuenta los siguientes aspectos:</div>
+                                <ul>
+                                    <li>Mostrar el interior</li>
+                                    <li>Elegir una imagen bien iluminada</li>
+                                    <li>Que sea tomada a la altura del pecho</li>
+                                    <li>Que se vean las esquinas del espacio</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="upload-column upload">
+                            <div class="box-caption first">Espacio: <span>Cocina</span></div>
+                            <div class="box-separador"></div>
+                            
+                                <div class="upload-box">
+                                    <label for="img">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                    </label>
+                                    <input type="file" id="img" name="document">
+
+                                    <div class="box-caption">Buscar en el ordenador</div>
+                                </div>
+                                <input type="submit">
+                            
+                        </div>
+
+                        <!-- <form action="/houses/newhouse/images/?area={{area}}" method="post" enctype="multipart/form-data" >
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit">Upload</button>
+                        </form> -->
+
+
+                        <div class="upload-column">
+                            <div class="first-text">Agrega 1 foto por espacio</div>
+                            <div class="center-spine">
+                                <div class="house-line"></div>
+                                <div class="house-circle house1 house-done"></div>
+                                <div class="house-circle house2"></div>
+                                <div class="house-circle house3"></div>
+                                <div class="house-circle house4"></div>
+                            </div>
+                            <div class="right-spine">
+                                <div class="house1 house-item">Cocina</div>
+                                <div class="house2 house-item">Sala/Comedor</div>
+                                <div class="house3 house-item">Baño</div>
+                                <div class="house4 house-item">Habitación</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="omitir">Omitir</div> -->
+                    <!-- <div class="next-button4">Guardar</div> -->
+                </form>
+                <br>
+                <br>
+                <br>
+    {% elif area == "hall" %}
+    <div class="spacer"></div>
+    <div class="info-upload">
+        <div class="form-title">Perfecto {{ name }}, iniciemos con nuestro proceso de remodelación</div>
+        <div class="form-caption">Ayudanos adjuntando la información a continuación</div>
+        <div class="progress-bar">
+            <div class="circle etapa1 checked"><i class="fas fa-check"></i></div>
+            <!-- <div class="circle etapa1"><i class="fas fa-check"></i></div> -->
+            <div class="line-1 checked"></div>
+            <div class="circle etapa2">2</div>
+            <div class="line-2"></div>
+            <div class="circle etapa3">3</div>
+        </div>
+
+        <div class="progress-bar" style="margin-top: -1vh;">
+            <div class="text etapa1" style="transform: translate(-40%, 0);">Información del apartamento</div>
+            <div class="text etapa2">Subir imágenes</div>
+            <div class="text etapa3" style="transform: translate(40%, 0);">Informe y descarga</div>
+        </div>
+
+            <div class="etapa-2">
+                <form  method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <div class="etapa-title">SUBE AQUÍ TU IMAGEN</div>
+                <div class="upload-steps">
+                    <div class="upload-column">
+                        <div class="text-box">
+                            <div class="arrow"></div>
+                            <div class="text-box-title">Ten en cuenta los siguientes aspectos:</div>
+                            <ul>
+                                <li>Mostrar el interior</li>
+                                <li>Elegir una imagen bien iluminada</li>
+                                <li>Que sea tomada a la altura del pecho</li>
+                                <li>Que se vean las esquinas del espacio</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="upload-column upload">
+                        <div class="box-caption first">Espacio: <span>Cocina</span></div>
+                        <div class="box-separador"></div>
+                        
+                            <div class="upload-box">
+                                <label for="img">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </label>
+                                <input type="file" id="img" name="document">
+
+                                <div class="box-caption">Buscar en el ordenador</div>
+                            </div>
+                            <input type="submit">
+                        
+                    </div>
+
+                    <!-- <form action="/houses/newhouse/images/?area={{area}}" method="post" enctype="multipart/form-data" >
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Upload</button>
+                    </form> -->
+
+
+                    <div class="upload-column">
+                        <div class="first-text">Agrega 1 foto por espacio</div>
+                        <div class="center-spine">
+                            <div class="house-line"></div>
+                            <div class="house-circle house1 house-done"></div>
+                            <div class="house-circle house2 house-done"></div>
+                            <div class="house-circle house3"></div>
+                            <div class="house-circle house4"></div>
+                        </div>
+                        <div class="right-spine">
+                            <div class="house1 house-item">Cocina</div>
+                            <div class="house2 house-item">Sala/Comedor</div>
+                            <div class="house3 house-item">Baño</div>
+                            <div class="house4 house-item">Habitación</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="omitir">Omitir</div> -->
+                <!-- <div class="next-button4">Guardar</div> -->
+            </form>
+            <br>
+            <br>
+            <br>
+        
+    {% elif area == "bath" %}
+    <div class="spacer"></div>
+    <div class="info-upload">
+        <div class="form-title">Perfecto {{ name }}, iniciemos con nuestro proceso de remodelación</div>
+        <div class="form-caption">Ayudanos adjuntando la información a continuación</div>
+        <div class="progress-bar">
+            <div class="circle etapa1 checked"><i class="fas fa-check"></i></div>
+            <!-- <div class="circle etapa1"><i class="fas fa-check"></i></div> -->
+            <div class="line-1 checked"></div>
+            <div class="circle etapa2">2</div>
+            <div class="line-2"></div>
+            <div class="circle etapa3">3</div>
+        </div>
+
+        <div class="progress-bar" style="margin-top: -1vh;">
+            <div class="text etapa1" style="transform: translate(-40%, 0);">Información del apartamento</div>
+            <div class="text etapa2">Subir imágenes</div>
+            <div class="text etapa3" style="transform: translate(40%, 0);">Informe y descarga</div>
+        </div>
+
+            <div class="etapa-2">
+                <form  method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <div class="etapa-title">SUBE AQUÍ TU IMAGEN</div>
+                <div class="upload-steps">
+                    <div class="upload-column">
+                        <div class="text-box">
+                            <div class="arrow"></div>
+                            <div class="text-box-title">Ten en cuenta los siguientes aspectos:</div>
+                            <ul>
+                                <li>Mostrar el interior</li>
+                                <li>Elegir una imagen bien iluminada</li>
+                                <li>Que sea tomada a la altura del pecho</li>
+                                <li>Que se vean las esquinas del espacio</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="upload-column upload">
+                        <div class="box-caption first">Espacio: <span>Cocina</span></div>
+                        <div class="box-separador"></div>
+                        
+                            <div class="upload-box">
+                                <label for="img">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </label>
+                                <input type="file" id="img" name="document">
+
+                                <div class="box-caption">Buscar en el ordenador</div>
+                            </div>
+                            <input type="submit">
+                        
+                    </div>
+
+                    <!-- <form action="/houses/newhouse/images/?area={{area}}" method="post" enctype="multipart/form-data" >
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Upload</button>
+                    </form> -->
+
+
+                    <div class="upload-column">
+                        <div class="first-text">Agrega 1 foto por espacio</div>
+                        <div class="center-spine">
+                            <div class="house-line"></div>
+                            <div class="house-circle house1 house-done"></div>
+                            <div class="house-circle house2 house-done"></div>
+                            <div class="house-circle house3 house-done"></div>
+                            <div class="house-circle house4"></div>
+                        </div>
+                        <div class="right-spine">
+                            <div class="house1 house-item">Cocina</div>
+                            <div class="house2 house-item">Sala/Comedor</div>
+                            <div class="house3 house-item">Baño</div>
+                            <div class="house4 house-item">Habitación</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="omitir">Omitir</div> -->
+                <!-- <div class="next-button4">Guardar</div> -->
+            </form>
+            <br>
+            <br>
+            <br>
+    {% elif area == "room" %}
+    <div class="spacer"></div>
+    <div class="info-upload">
+        <div class="form-title">Perfecto {{ name }}, iniciemos con nuestro proceso de remodelación</div>
+        <div class="form-caption">Ayudanos adjuntando la información a continuación</div>
+        <div class="progress-bar">
+            <div class="circle etapa1 checked"><i class="fas fa-check"></i></div>
+            <!-- <div class="circle etapa1"><i class="fas fa-check"></i></div> -->
+            <div class="line-1 checked"></div>
+            <div class="circle etapa2">2</div>
+            <div class="line-2"></div>
+            <div class="circle etapa3">3</div>
+        </div>
+
+        <div class="progress-bar" style="margin-top: -1vh;">
+            <div class="text etapa1" style="transform: translate(-40%, 0);">Información del apartamento</div>
+            <div class="text etapa2">Subir imágenes</div>
+            <div class="text etapa3" style="transform: translate(40%, 0);">Informe y descarga</div>
+        </div>
+
+            <div class="etapa-2">
+                <form  method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <div class="etapa-title">SUBE AQUÍ TU IMAGEN</div>
+                <div class="upload-steps">
+                    <div class="upload-column">
+                        <div class="text-box">
+                            <div class="arrow"></div>
+                            <div class="text-box-title">Ten en cuenta los siguientes aspectos:</div>
+                            <ul>
+                                <li>Mostrar el interior</li>
+                                <li>Elegir una imagen bien iluminada</li>
+                                <li>Que sea tomada a la altura del pecho</li>
+                                <li>Que se vean las esquinas del espacio</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="upload-column upload">
+                        <div class="box-caption first">Espacio: <span>Cocina</span></div>
+                        <div class="box-separador"></div>
+                        
+                            <div class="upload-box">
+                                <label for="img">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </label>
+                                <input type="file" id="img" name="document">
+
+                                <div class="box-caption">Buscar en el ordenador</div>
+                            </div>
+                            <input type="submit">
+                        
+                    </div>
+
+                    <!-- <form action="/houses/newhouse/images/?area={{area}}" method="post" enctype="multipart/form-data" >
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Upload</button>
+                    </form> -->
+
+
+                    <div class="upload-column">
+                        <div class="first-text">Agrega 1 foto por espacio</div>
+                        <div class="center-spine">
+                            <div class="house-line"></div>
+                            <div class="house-circle house1 house-done"></div>
+                            <div class="house-circle house2 house-done"></div>
+                            <div class="house-circle house3 house-done"></div>
+                            <div class="house-circle house4 house-done"></div>
+                        </div>
+                        <div class="right-spine">
+                            <div class="house1 house-item">Cocina</div>
+                            <div class="house2 house-item">Sala/Comedor</div>
+                            <div class="house3 house-item">Baño</div>
+                            <div class="house4 house-item">Habitación</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="omitir">Omitir</div> -->
+                <!-- <div class="next-button4">Guardar</div> -->
+            </form>
+            <br>
+            <br>
+            <br>
+    {% else %}
+    
+    {% endif %}
+{% endblock %}

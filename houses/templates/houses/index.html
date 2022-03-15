@@ -1,0 +1,54 @@
+<!-- CSS CUSTOM -->
+{% extends 'houses/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="spacer"></div>
+    <div class="form-1">
+        <div class="form-title">Necesitamos saber algunas cosas de tí</div>
+        <div class="form-caption">Con ello podremos iniciar nuestro proceso de remodelación</div>
+            <div class="form-main">
+
+            <form action="/houses/" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Submit">
+            </form>
+
+            <!-- <form action="/houses/" method="GET">
+                {% csrf_token %}
+
+                    <label for="type">Eres</label>
+                    <select id="type" name="type">
+                    <option value="vendedor">Vendedor</option>
+                    <option value="comprador">Comprador</option>
+                    <option value="remodelador">Remodelador</option>
+                    </select>
+
+                    <label for="customer">Tipo de cliente</label>
+                    <select id="customer" name="customer">
+                        <option value="persona">Persona</option>
+                        <option value="empresa">Empresa</option>
+                    </select>
+
+
+                    <label for="name">Nombre Completo</label>
+                    <input type="text" id="name" name="allname" placeholder="Ej: Juan Gonzales...">
+                
+                    <label for="mail">Correo</label>
+                    <input type="mail" id="email" name="email" placeholder="Ej: Juangonzales@ejemplo.com...">
+                
+                    <label for="phone">Celular</label>
+                    <input type="text" id="phone" name="phone" placeholder="Inserta tu número de celular...">
+                    
+                
+                    <br>
+                    <br>
+
+                <input type="submit" value="Siguiente">
+            </form> -->
+            <!-- <div class="button-submit">Siguiente</div> -->
+            
+        </div>
+    </div>
+{% endblock %}

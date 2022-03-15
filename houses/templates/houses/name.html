@@ -1,0 +1,74 @@
+<!-- CSS CUSTOM -->
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remodelación virtual</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- <link rel="stylesheet" href="./main.css">-->
+    <link rel="stylesheet" type="text/css" href="{% static 'houses/style.css' %}">
+    <script src="{% static 'houses/main.js' %}"></script>
+    <!-- <script src="./main.js"></script> -->
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo"><img src="{% static 'houses/logoverde.png' %}" alt=""></div>
+        <div class="caption">Remodelación Virtual</div>
+    </div>
+     <div class="spacer"></div>
+    <div class="form-1">
+        <div class="form-title">Necesitamos saber algunas cosas de tí</div>
+        <div class="form-caption">Con ello podremos iniciar nuestro proceso de remodelación</div>
+            <div class="form-main">
+            <!-- <form action="/newuser/" method="GET">
+                {% csrf_token %}
+
+                    <label for="type">Eres</label>
+                    <select id="type" name="type">
+                    <option value="vendedor">Vendedor</option>
+                    <option value="comprador">Comprador</option>
+                    <option value="remodelador">Remodelador</option>
+                    </select>
+
+                    <label for="customer">Tipo de cliente</label>
+                    <select id="customer" name="customer">
+                        <option value="persona">Persona</option>
+                        <option value="empresa">Empresa</option>
+                    </select>
+
+
+                    <label for="name">Nombre Completo</label>
+                    <input type="text" id="name" name="allname" placeholder="Ej: Juan Gonzales...">
+                
+                    <label for="mail">Correo</label>
+                    <input type="mail" id="email" name="email" placeholder="Ej: Juangonzales@ejemplo.com...">
+                
+                    <label for="phone">Celular</label>
+                    <input type="text" id="phone" name="phone" placeholder="Inserta tu número de celular...">
+                    
+                
+                    <br>
+                    <br>
+
+                <input type="submit" value="Siguiente">
+            </form> -->
+            <form action="/your-name/" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Submit">
+            </form>
+            <!-- <div class="button-submit">Siguiente</div> -->
+            
+        </div>
+    </div>
+</body>
+</html>
