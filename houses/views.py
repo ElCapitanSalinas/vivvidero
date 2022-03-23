@@ -50,16 +50,18 @@ def comparar(baseimg, area, apartmentid):
     image_to_compare = cv2.imread("./media/catalogo/"+area+"/"+compname+"")
     print("./media/catalogo/"+area+"/"+compname+"")
 
-    if original.shape[1] > 2800 or original.shape[0] > 2800:
-        scale_percent = 10
-    elif original.shape[1] > 2000 or original.shape[0] > 2000:
-        scale_percent = 25
-    elif original.shape[1] > 1500 or original.shape[0] > 1500:
-        scale_percent = 50
-    else:
-        scale_percent = 100
-    width = int(original.shape[1] * scale_percent / 100)
-    height = int(original.shape[0] * scale_percent / 100)
+    # if original.shape[1] > 2800 or original.shape[0] > 2800:
+    #     scale_percent = 10
+    # elif original.shape[1] > 2000 or original.shape[0] > 2000:
+    #     scale_percent = 25
+    # elif original.shape[1] > 1500 or original.shape[0] > 1500:
+    #     scale_percent = 50
+    # else:
+    #     scale_percent = 100
+
+
+    width = int(image_to_compare.shape[1] * 100 / 100)
+    height = int(image_to_compare.shape[0] * 100 / 100)
     dim = (width, height)
     
     # resize image
@@ -305,6 +307,7 @@ def iniciarComp(apartmentid):
 def finalview(request):
     areas = ["ktc", "hall", "bath", "room"]
     apartmentid = request.GET['id']
+    
     # render(request, 'houses/base.html')
     iniciarComp(apartmentid)
 
@@ -333,7 +336,7 @@ def finalMail(apartmentid, email):
         pdf.set_font('Helvetica', '', 10)
         pdf.set_text_color(0, 0, 0)
         # pdf.image('./media/foto.png', x = 0, y = 0, w = 155, h = 712)
-        pdf.image('./media/foto.png', x = 0, y = 0, w = 155, h = 712)
+        pdf.image('./media/formato.jpg', x = 0, y = 0, w = 155, h = 712)
 
         pdf.text(47, 39, ap.direccion) # BARRIO
         pdf.text(51, 112, ap.direccion) # BARRIO
@@ -397,7 +400,7 @@ def verpdf(request):
         pdf.set_font('Helvetica', '', 10)
         pdf.set_text_color(0, 0, 0)
         # pdf.image('./media/foto.png', x = 0, y = 0, w = 155, h = 712)
-        pdf.image('./media/foto.png', x = 0, y = 0, w = 155, h = 712)
+        pdf.image('./media/formato.jpg', x = 0, y = 0, w = 155, h = 712)
 
         pdf.text(47, 39, ap.direccion) # BARRIO
         pdf.text(51, 112, ap.direccion) # BARRIO
