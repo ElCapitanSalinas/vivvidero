@@ -58,31 +58,8 @@ $(document).ready(function(){
         } else if (data == "Comodidades") {
             $(".input-box").animate({opacity: '0'}, 00, function(){});
             $(".estrato-box").animate({opacity: '0'}, 0, function(){});
-            var offset = $(this).offset();
-            var top = offset.top;
-            var left = offset.left;
             
-            var viewportWidth = $("body").innerWidth();
-    
-            var total = ((left / viewportWidth) * 100) - 15.2
-            $(".comodities-box").css({left: total+"vw", top: (top+10)+"px", position:'absolute'});
-            $(".input-title").html(data);
-
-            $(".comodities-box").animate({opacity: '1'}, 100, function(){});
-        } else {
-            $(".input-box").animate({opacity: '0'}, 00, function(){});
-            $(".comodities-box").animate({opacity: '0'}, 0, function(){});
-            var offset = $(this).offset();
-            var top = offset.top;
-            var left = offset.left;
-            
-            var viewportWidth = $("body").innerWidth();
-    
-            var total = ((left / viewportWidth) * 100) - 15.2
-            $(".estrato-box").css({left: total+"vw", top: (top+10)+"px", position:'absolute'});
-            $(".input-title").html(data);
-
-            $(".estrato-box").animate({opacity: '1'}, 100, function(){});
+            $(".container-comodities-box").fadeIn();
 
 
          
@@ -154,41 +131,92 @@ $(document).ready(function(){
         $("#estrato-form").val($(this).val());
     }); 
 
-    let comodities = []
-    $('input[type="checkbox"]').change(function() {
+    let comodities = [];
+    let comoditiesindex = [];
 
-        $($(this).data('com')).appendTo('#comodidades');
+    comoditiesindex["bath"] = 0
+    comoditiesindex["rooms"] = 0
+    comoditiesindex["garage"] = "no"
+    comoditiesindex["balcon"] = "no"
+    comoditiesindex["ascensor"] = "no"
+    comoditiesindex["social"] = "no"
+    let previous
 
-        if ($(this).is(':checked')) {
-            comodities.push($(this).data('com'));
-        } else {
-            var index = comodities.indexOf($(this).data('com'))
-            comodities.splice(index, 1)
-            // comodities.push($(this).data('com'));
+    $('.options-item').click(function (e) { 
+        e.preventDefault();
+        $(this).css("background-color", "#01acd6");
+        // $(this).animate({backgroundColor: '#01acd6'}, 700, function(){});
+        console.log($(this).data("checked"))
+
+        let space = $(this).data("space")
+        let value = $(this).data("value");
+        
+
+            if ($(this).data("checked") === false) {
+                $(this).css("background-color", "#01acd6");
+                
+                comoditiesindex[space] = value
+
+                if (space == $(previous).data("space")) {
+                    $(previous).css("background-color", "#f1f1f1");
+                    $(previous).data("checked", false);
+                }
+
+                previous = this
+                $(this).data("checked", true);
+            } else {
+                $(this).css("background-color", "#f1f1f1");
+                $(this).data("checked", false);
+            }
+        console.log(space, value)
+        console.log(comoditiesindex[space])
+        updateComodities(comoditiesindex)
+    });
+
+    $(".card-inner-btn").click(function (e) { 
+        e.preventDefault();
+
+        $(".container-comodities-box").fadeOut();
+        
+    });
+    // $('.options-item').click(function() {
+
+    //     // $($(this).data('com')).appendTo('#comodidades');
+
+    //     // if ($(this).is(':checked')) {
+    //     //     comodities.push($(this).data('com'));
+    //     // } else {
+    //     //     var index = comodities.indexOf($(this).data('com'))
+    //     //     comodities.splice(index, 1)
+    //     //     // comodities.push($(this).data('com'));
             
-        }
+    //     // }
 
-        // // console.log(comodities.length)
-        updateComodities(comodities)
+    //     // // console.log(comodities.length)
+    //     updateComodities(comodities)
 
 
-     });
+    //  });
 });
 
 function updateComodities(comodities) {
     let comodidades = comodities
-    $("#comodidades").html("");
 
-    comodidades.forEach(function(v, k, array) {
-        var text = $("#comodidades").html();
-        $("#comodidades").html(v);
-        if (text == "") {
-            $("#comodidades").html(v);
-            $("#comodidades-form").val(v);
-        } else {
-            $("#comodidades").html(text+", "+v+"");
-            $("#comodidades-form").val(text+", "+v+"");
-        }
+    console.log(comodidades["balcon"])
+    $("#comodidades").html("Baños: "+comodidades["bath"]+", Habitaciones: "+comodidades["rooms"]+", Garaje: "+comodidades["garage"]+", Balcón: "+comodidades["balcon"]+", Ascensor: "+comodidades["ascensor"]+", Area social: "+comodidades["social"]+"");
+    // $("#comodidades").html("");
+
+    // comodidades.forEach(function(v, k, array) {
+    //     console.log(v, k, array)
+    //     // var text = $("#comodidades").html();
+    //     // $("#comodidades").html(v);
+    //     // if (text == "") {
+    //     //     $("#comodidades").html(v);
+    //     //     $("#comodidades-form").val(v);
+    //     // } else {
+    //     //     $("#comodidades").html(text+", "+v+"");
+    //     //     $("#comodidades-form").val(text+", "+v+"");
+    //     // }
         
-    })
+    // })
 }
