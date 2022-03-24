@@ -252,15 +252,20 @@ label {
 
 .form-container {
     /* background-color: blue; */
-    display: flex;
+    /* display: flex; */
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 .etapa1-form {
     width: fit-content;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
     border-radius: 10px;
     height: 8vh;
     background-color: #F1F1F1;
-    margin-left: 10vw;
+    /* margin-left: 10vw; */
     /* margin: 0 auto; */
     margin-top: 5vh;
     display: flex;

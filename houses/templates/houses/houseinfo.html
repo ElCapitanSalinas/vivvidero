@@ -93,7 +93,6 @@
                         <input type="hidden" id="comodidades-form" name="comodities" placeholder="comodidades">
                         <br>
                         <br>
-                    <div class="form-container">
                         <div class="etapa1-form">
                             <div class="form-item" data-type="Barrio">
                                 <div class="item-title">Barrio</div>
@@ -112,10 +111,7 @@
                                 <div class="item-info" id="comodidades">Describe las comodidades</div>
                             </div>
                         </div>
-                        <div class="save-button">
-                            Guardar
-                        </div>
-                    </div>
+                    
                     <div class="input-box">
                         <div class="input-title">Ubicación</div>
                         <div class="box-input">
@@ -123,42 +119,20 @@
                         </div>
                         <div class="input-save">Guardar</div>
                     </div>
-
-                    <div class="estrato-box">
-                        <div class="input-title2">Estrato</div>
-                        <div class="box-input">
-                            <select id="estratoselect" name="estrato">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                            </select>
-                        </div>
-                        <div class="input-save2">Guardar</div>
-                    </div>
-
-                    <!-- <div class="comodities-box">
-                        <div class="box-input2">
-                            <div class="checkbox-item"><label><input type="checkbox" data-com="Baño" value="first_checkbox"> Baño</label></div>
-                            <div class="checkbox-item"><input type="checkbox" data-com="Balcon" value="second_checkbox"> <label for="cbox2"> Balcón</label></div>                    
-                            <div class="checkbox-item"><input type="checkbox" data-com="Garaje" value="second_checkbox"> <label for="cbox2"> Garaje</label></div>
-                            <div class="checkbox-item"><input type="checkbox" data-com="Ascensor" value="second_checkbox"> <label for="cbox2"> Ascensor</label></div>
-                            
-                            <div class="checkbox-item"><input type="checkbox" data-com="Area Social" value="second_checkbox"> <label for="cbox2"> Area Social</label></div>                    
-                            <div class="checkbox-item"><input type="checkbox" data-com="Sala" value="second_checkbox"> <label for="cbox2"> Sala comedor</label></div>                    
-                            <div class="checkbox-item"><input type="checkbox" data-com="Habitaciones" value="second_checkbox"> <label for="cbox2"> 2+ Habitaciones</label></div>
-                            <div class="checkbox-item"><input type="checkbox" data-com="Baños" value="second_checkbox"> <label for="cbox2"> 2+ Baños</label></div>
-                        </div>
-                        <br>
-                        <div class="input-save3">Guardar</div>
-                    </div> -->
+                    
+                    {% block messages %}
+                        {% if error %}<h6 style="position: absolute; color: red; text-align: center; font-style: italic; font-weight: bold; top: 84vh;">{{ error }}</h6>{% endif %}
+                    {% endblock %}
+                    
+                    
 
                     <input type="submit" class="" style="position: absolute; width: 8vw; height: 5vh; border-radius: 30px; line-height: 0vh; font-weight: bold; left: 0; right: 0; margin: 0 auto; top: 85vh;" value="Seguir al paso 2">
                 </form>
                 <!-- <div class="next-button1">Seguir al paso 2</div> -->
                 <br>
                 <div class="appartment-code">Tengo un código de apartamento</div>
+
+                
+                
             </div>
 {% endblock %}

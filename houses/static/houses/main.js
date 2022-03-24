@@ -30,6 +30,8 @@ $(document).ready(function(){
         }  
     });
 
+    
+
     $(".form-item").click(function (e) { 
         e.preventDefault();
 
@@ -120,6 +122,10 @@ $(document).ready(function(){
         }
 
     });
+
+    $('#imagefile').change(function() {
+        $('#imgform').submit();
+    });
     
     $("select").on("input", function() {
         var data = $(this).data("type")
@@ -198,6 +204,7 @@ $(document).ready(function(){
 
     //  });
 });
+
 
 function updateComodities(comodities) {
     let comodidades = comodities
