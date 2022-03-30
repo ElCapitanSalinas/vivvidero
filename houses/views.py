@@ -18,6 +18,8 @@ import numpy as np
 import time
 import os, os.path
 
+import threading
+
 global tempsims
 tempsims = 1
 
@@ -310,7 +312,8 @@ def finalview(request):
     apartmentid = request.GET['id']
     
     # render(request, 'houses/base.html')
-    iniciarComp(apartmentid)
+    compare = threading.Thread(target=iniciarComp, name="Downloader", args=apartmentid)
+    compare.start()
 
     return HttpResponseRedirect(f'/houses/')
 
