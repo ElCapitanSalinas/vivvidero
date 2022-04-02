@@ -25,7 +25,7 @@
             </div>
 
                 <div class="etapa-2">
-                    <form  method="post" id="imgform" enctype="multipart/form-data">
+                    <form id="form" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                     <div class="etapa-title">SUBE AQUÍ TU IMAGEN</div>
                     <div class="upload-steps">
@@ -46,14 +46,14 @@
                             <div class="box-separador"></div>
                             
                                 <div class="upload-box">
-                                    <label for="img">
+                                    <label for="file">
                                         <i class="fas fa-cloud-upload-alt"></i>
                                     </label>
-                                    <input type="file" id="img" name="document">
+                                    <input type="file" id="file" name="document">
 
                                     <div class="box-caption">Buscar en el ordenador</div>
                                 </div>
-                                <input type="submit">
+                                <!-- <input type="submit"> -->
                             
                         </div>
 
@@ -108,7 +108,7 @@
         </div>
 
             <div class="etapa-2">
-                <form  method="post" id="imgform" enctype="multipart/form-data">
+                <form id="form" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                 <div class="etapa-title">SUBE AQUÍ TU IMAGEN</div>
                 <div class="upload-steps">
@@ -129,14 +129,14 @@
                         <div class="box-separador"></div>
                         
                             <div class="upload-box">
-                                <label for="img">
+                                <label for="file" class="cloud">
                                     <i class="fas fa-cloud-upload-alt"></i>
                                 </label>
-                                <input type="file" id="img" name="document">
+                                <input type="file" id="file" name="document" >
 
                                 <div class="box-caption">Buscar en el ordenador</div>
                             </div>
-                            <input type="submit">
+                            <!-- <input type="submit"> -->
                         
                     </div>
 
@@ -192,7 +192,7 @@
         </div>
 
             <div class="etapa-2">
-                <form  method="post" id="imgform" enctype="multipart/form-data">
+                <form id="form" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                 <div class="etapa-title">SUBE AQUÍ TU IMAGEN</div>
                 <div class="upload-steps">
@@ -213,14 +213,14 @@
                         <div class="box-separador"></div>
                         
                             <div class="upload-box">
-                                <label for="img">
+                                <label for="file" class="cloud">
                                     <i class="fas fa-cloud-upload-alt"></i>
                                 </label>
-                                <input type="file" id="img" name="document">
+                                <input type="file" id="file" name="document" >
 
                                 <div class="box-caption">Buscar en el ordenador</div>
                             </div>
-                            <input type="submit">
+                            <!-- <input type="submit"> -->
                         
                     </div>
 
@@ -275,7 +275,7 @@
         </div>
 
             <div class="etapa-2">
-                <form  method="post" id="imgform" enctype="multipart/form-data">
+                <form id="form" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                 <div class="etapa-title">SUBE AQUÍ TU IMAGEN</div>
                 <div class="upload-steps">
@@ -296,14 +296,14 @@
                         <div class="box-separador"></div>
                         
                             <div class="upload-box">
-                                <label for="img">
+                                <label for="file" class="cloud">
                                     <i class="fas fa-cloud-upload-alt"></i>
                                 </label>
-                                <input type="file" id="img" name="document">
+                                <input type="file" id="file" name="document" >
 
                                 <div class="box-caption">Buscar en el ordenador</div>
                             </div>
-                            <input type="submit">
+                            <!-- <input type="submit"> -->
                         
                     </div>
 
@@ -340,4 +340,17 @@
     {% else %}
     
     {% endif %}
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+    
+    <script>
+        document.getElementById("file").onchange = function() {
+            
+            setTimeout(() => {document.getElementById("form").submit()}, 500);
+        }
+    </script>
 {% endblock %}

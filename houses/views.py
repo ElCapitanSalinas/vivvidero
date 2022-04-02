@@ -312,12 +312,16 @@ def finalview(request):
     apartmentid = request.GET['id']
     
     # render(request, 'houses/base.html')
-    compare = threading.Thread(target=iniciarComp, name="Downloader", args=apartmentid)
+    compare = threading.Thread(target=iniciarComp, name="Downloader", args=(apartmentid,))
     compare.start()
 
-    return HttpResponseRedirect(f'/houses/')
+    ap = Apartamentos.objects.get(id=int(apartmentid))
+    uid = ap.userid
 
-    # return render(request, 'houses/images.html', {'area': area})
+    user = User.objects.get(id=int(uid))
+    email = user.correo
+
+    return render(request, 'houses/final.html', {'email': email})
 
 import numpy as np
 from fpdf import FPDF

@@ -520,7 +520,7 @@ label {
     text-align: center;
     color: #F2F2F2;
     margin-top: 1vh;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 #img {
@@ -542,6 +542,7 @@ label {
     font-size: .79vw;
     font-weight: bold;
     color: #203F3C;
+    cursor: default;
 }
 
 .first {
@@ -799,4 +800,21 @@ ul {
 
 .card-inner-btn:hover {
     transform: scale(1.1, 1.1);
+}
+
+.fa-cloud-upload-alt {
+    cursor: pointer;
+}
+
+/* .spacer{
+    height: 50vh;
+} */
+
+.final-caption {
+    width: 60%;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    margin-top: 20vh;
 }

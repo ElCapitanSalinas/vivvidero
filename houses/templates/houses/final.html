@@ -1,0 +1,36 @@
+<!-- CSS CUSTOM -->
+{% extends 'houses/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="spacer"></div>
+<div class="info-upload">
+    <div class="form-title">Perfecto {{ name }}, iniciemos con nuestro proceso de remodelación</div>
+    <div class="form-caption">Ayudanos adjuntando la información a continuación</div>
+    <div class="progress-bar">
+        <div class="circle etapa1 checked"><i class="fas fa-check"></i></div>
+        <!-- <div class="circle etapa1"><i class="fas fa-check"></i></div> -->
+        <div class="line-1 checked"></div>
+        <div class="circle etapa2">2</div>
+        <div class="line-2"></div>
+        <div class="circle etapa3">3</div>
+    </div>
+
+    <div class="progress-bar" style="margin-top: -1vh;">
+        <div class="text etapa1" style="transform: translate(-40%, 0);">Información del apartamento</div>
+        <div class="text etapa2">Subir imágenes</div>
+        <div class="text etapa3" style="transform: translate(40%, 0);">Informe y descarga</div>
+    </div>
+
+    <div class="final-caption">
+        Hemos terminado de recolectar las imagenes y datos necesarios para el proceso, al finalizar
+        enviaremos un correo electrónico a la dirección <span style="font-weight: bold;">{{email}}</span>, en caso de
+        presentar algún inconveniente no dudes en contactarnos, puedes cerrar esta ventana si lo
+        deseas.
+    </div>
+        
+    <br>
+    <br>
+    <br>
+{% endblock %}

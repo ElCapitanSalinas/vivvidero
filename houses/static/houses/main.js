@@ -1,5 +1,12 @@
 
+$(".file").change(function (e) { 
+    e.preventDefault();
+    alert( "Handler for .change() called." );
+});
+
 $(document).ready(function(){
+
+    
 
     $(".form-1").animate({opacity: '1'}, 1200, function(){});
     $(".button-submit").click(function (e) { 
