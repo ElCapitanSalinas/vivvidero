@@ -28,7 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '51.81.32.7',
-    '127.0.0.1'
+    '127.0.0.1',
+    '154.53.61.188'
 ]
 
 
@@ -81,13 +82,10 @@ WSGI_APPLICATION = 'vivvidero.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'vivvidero',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
     }
+
 }
 
 
