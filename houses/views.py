@@ -344,53 +344,60 @@ def finalMail(apartmentid, email):
     if path.exists(f"./media/{apartmentid}.pdf"):
         print("Ya existe")
     else:
-        pdf = FPDF('P', 'mm', (155, 712))
+
+        pdf = FPDF('P', 'mm', (216, 279.4))
         pdf.add_page()
         pdf.set_font('Helvetica', '', 10)
         pdf.set_text_color(0, 0, 0)
-        # pdf.image('./media/foto.png', x = 0, y = 0, w = 155, h = 712)
-        pdf.image('./media/formato.jpg', x = 0, y = 0, w = 155, h = 712)
+        pdf.image('./0001.jpg', x = 0, y = 0, w = 216, h = 279.4)
 
-        pdf.text(47, 39, ap.direccion) # BARRIO
-        pdf.text(51, 112, ap.direccion) # BARRIO
-        pdf.text(64, 39, ap.area) #AREA
-        pdf.text(26, 112, ap.area) #AREA
+        pdf.text(57, 26, ap.direccion) # BARRIO
+        pdf.text(75, 26, ap.area) #AREA
 
-        pdf.text(77, 112, "X") #HABITACIÓN
-        pdf.text(103, 112, "X") #BAÑOS
-        pdf.text(127.8, 112, "X") #PARQUEADERO
+        pdf.text(185, 49, ap.direccion) # BARRIO
+        pdf.text(185, 39, ap.area) #AREA
 
+        # pdf.text(77, 112, "X") #HABITACIÓN
+        # pdf.text(103, 112, "X") #BAÑOS
+        # pdf.text(127.8, 112, "X") #PARQUEADERO
 
-        
         precio = "${:,.2f}".format(int(ap.precio))
         precio_remo = "${:,.2f}".format(int(ap.precio_remo))
         precio_nuevo = "${:,.2f}".format(int(ap.precio_nuevo))
 
+
         pdf.set_fill_color(0, 0, 0)
-        pdf.set_xy(10, 51)
-        pdf.cell(36, 7, precio, 0, 1, 'C') # PRECIO INICIAL
-        pdf.set_xy(59, 51)
-        pdf.cell(36, 7, precio_remo, 0, 1, 'C') # PRECIO REMO
-        pdf.set_xy(108, 51)
-        pdf.cell(36, 7, precio_nuevo, 0, 1, 'C') # PRECIO FINAL
+        pdf.set_xy(15, 36)
+        pdf.cell(41, 10, precio, 0, 1, 'C') # PRECIO INICIAL
+        pdf.set_xy(15, 54)
+        pdf.cell(42, 10, precio_remo, 0, 1, 'C') # PRECIO REMO
+        pdf.set_text_color(255, 255, 255)
+        pdf.set_font('Helvetica', 'B', 10)
+        pdf.set_xy(15, 71)
+        pdf.cell(42, 10, precio_nuevo, 0, 1, 'C') # PRECIO FINAL
 
-        pdf.image(f"./media/catalogo/ktc/{ap.ktc_new}", x = 20, y = 61.5, w = 42) # img 1
-        pdf.image(f"./media/catalogo/room/{ap.room_new}", x = 90, y = 61.5, w = 42) # img 2
-
-
-        pdf.image(f".{ap.ktc}", x = 21, y = 176, w = 56) # Cocina ant
-        pdf.image(f"./media/catalogo/ktc/{ap.ktc_new}", x = 90, y = 176, w = 56) # Cocina desp
-
-        pdf.image(f".{ap.hall}", x = 21, y = 243, w = 56) # Sala ant
-        pdf.image(f"./media/catalogo/hall/{ap.hall_new}", x = 90, y = 243, w = 56) # Sala desp
-        # 67
-        pdf.image(f".{ap.bath}", x = 21, y = 310, w = 56) # Baño ant
-        pdf.image(f"./media/catalogo/bath/{ap.bath_new}", x = 90, y = 310, w = 56) # Baño desp
-
-        pdf.image(f".{ap.room}", x = 21, y = 378, w = 56) # Room ant
-        pdf.image(f"./media/catalogo/room/{ap.room_new}", x = 90, y = 378, w = 56) # Room desp
+        pdf.image(f"./media/catalogo/ktc/{ap.ktc_new}", x = 64, y = 35, w = 45) # img 1
+        pdf.image(f"./media/catalogo/room/{ap.room_new}", x = 112, y = 35, w = 45) # img 2
 
 
+        pdf.image(f".{ap.ktc}", x = 41, y = 99, w = 48) # Cocina ant
+        pdf.image(f"./media/catalogo/ktc/{ap.ktc_new}", x = 135, y = 99, w = 48) # Cocina desp
+
+        pdf.image(f".{ap.hall}", x = 41, y = 160, w = 48) # Sala ant
+        pdf.image(f"./media/catalogo/hall/{ap.hall_new}", x = 135, y = 160, w = 48) # Sala desp
+        # # 67
+        pdf.image(f".{ap.bath}", x = 41, y = 221, w = 48) # Baño ant
+        pdf.image(f"./media/catalogo/bath/{ap.bath_new}", x = 135, y = 221, w = 48) # Baño desp
+
+
+        pdf.add_page()
+
+        pdf.set_font('Helvetica', '', 10)
+        pdf.set_text_color(0, 0, 0)
+        pdf.image('./0002.jpg', x = 0, y = 0, w = 216, h = 279.4)
+
+        pdf.image(f".{ap.room}", x = 41, y = 15, w = 48) # Room ant
+        pdf.image(f"./media/catalogo/room/{ap.room_new}", x = 135, y = 15, w = 48) # Room desp
         pdf.output(f'./media/{apartmentid}.pdf')
 
     sendMail(email, apartmentid)
@@ -408,53 +415,59 @@ def verpdf(request):
     if path.exists(f"./media/{apartmentid}.pdf"):
         return FileResponse(open(f'./media/{apartmentid}.pdf', 'rb'), content_type='application/pdf')
     else:
-        pdf = FPDF('P', 'mm', (155, 712))
+        pdf = FPDF('P', 'mm', (216, 279.4))
         pdf.add_page()
         pdf.set_font('Helvetica', '', 10)
         pdf.set_text_color(0, 0, 0)
-        # pdf.image('./media/foto.png', x = 0, y = 0, w = 155, h = 712)
-        pdf.image('./media/formato.jpg', x = 0, y = 0, w = 155, h = 712)
+        pdf.image('./0001.jpg', x = 0, y = 0, w = 216, h = 279.4)
 
-        pdf.text(47, 39, ap.direccion) # BARRIO
-        pdf.text(51, 112, ap.direccion) # BARRIO
-        pdf.text(64, 39, ap.area) #AREA
-        pdf.text(26, 112, ap.area) #AREA
+        pdf.text(57, 26, ap.direccion) # BARRIO
+        pdf.text(75, 26, ap.area) #AREA
 
-        pdf.text(77, 112, "X") #HABITACIÓN
-        pdf.text(103, 112, "X") #BAÑOS
-        pdf.text(127.8, 112, "X") #PARQUEADERO
+        pdf.text(185, 49, ap.direccion) # BARRIO
+        pdf.text(185, 39, ap.area) #AREA
 
-        
+        # pdf.text(77, 112, "X") #HABITACIÓN
+        # pdf.text(103, 112, "X") #BAÑOS
+        # pdf.text(127.8, 112, "X") #PARQUEADERO
+
         precio = "${:,.2f}".format(int(ap.precio))
         precio_remo = "${:,.2f}".format(int(ap.precio_remo))
         precio_nuevo = "${:,.2f}".format(int(ap.precio_nuevo))
 
+
         pdf.set_fill_color(0, 0, 0)
-        pdf.set_xy(10, 51)
-        pdf.cell(36, 7, precio, 0, 1, 'C') # PRECIO INICIAL
-        pdf.set_xy(59, 51)
-        pdf.cell(36, 7, precio_remo, 0, 1, 'C') # PRECIO REMO
-        pdf.set_xy(108, 51)
-        pdf.cell(36, 7, precio_nuevo, 0, 1, 'C') # PRECIO FINAL
+        pdf.set_xy(15, 36)
+        pdf.cell(41, 10, precio, 0, 1, 'C') # PRECIO INICIAL
+        pdf.set_xy(15, 54)
+        pdf.cell(42, 10, precio_remo, 0, 1, 'C') # PRECIO REMO
+        pdf.set_text_color(255, 255, 255)
+        pdf.set_font('Helvetica', 'B', 10)
+        pdf.set_xy(15, 71)
+        pdf.cell(42, 10, precio_nuevo, 0, 1, 'C') # PRECIO FINAL
+
+        pdf.image(f"./media/catalogo/ktc/{ap.ktc_new}", x = 64, y = 35, w = 45) # img 1
+        pdf.image(f"./media/catalogo/room/{ap.room_new}", x = 112, y = 35, w = 45) # img 2
 
 
-        pdf.image(f"./media/catalogo/ktc/{ap.ktc_new}", x = 20, y = 61.5, w = 42) # img 1
-        pdf.image(f"./media/catalogo/room/{ap.room_new}", x = 90, y = 61.5, w = 42) # img 2
+        pdf.image(f".{ap.ktc}", x = 41, y = 99, w = 48) # Cocina ant
+        pdf.image(f"./media/catalogo/ktc/{ap.ktc_new}", x = 135, y = 99, w = 48) # Cocina desp
+
+        pdf.image(f".{ap.hall}", x = 41, y = 160, w = 48) # Sala ant
+        pdf.image(f"./media/catalogo/hall/{ap.hall_new}", x = 135, y = 160, w = 48) # Sala desp
+        # # 67
+        pdf.image(f".{ap.bath}", x = 41, y = 221, w = 48) # Baño ant
+        pdf.image(f"./media/catalogo/bath/{ap.bath_new}", x = 135, y = 221, w = 48) # Baño desp
 
 
-        pdf.image(f".{ap.ktc}", x = 21, y = 176, w = 56) # Cocina ant
-        pdf.image(f"./media/catalogo/ktc/{ap.ktc_new}", x = 90, y = 176, w = 56) # Cocina desp
+        pdf.add_page()
 
-        pdf.image(f".{ap.hall}", x = 21, y = 243, w = 56) # Sala ant
-        pdf.image(f"./media/catalogo/hall/{ap.hall_new}", x = 90, y = 243, w = 56) # Sala desp
-        # 67
-        pdf.image(f".{ap.bath}", x = 21, y = 310, w = 56) # Baño ant
-        pdf.image(f"./media/catalogo/bath/{ap.bath_new}", x = 90, y = 310, w = 56) # Baño desp
+        pdf.set_font('Helvetica', '', 10)
+        pdf.set_text_color(0, 0, 0)
+        pdf.image('./0002.jpg', x = 0, y = 0, w = 216, h = 279.4)
 
-        pdf.image(f".{ap.room}", x = 21, y = 378, w = 56) # Room ant
-        pdf.image(f"./media/catalogo/room/{ap.room_new}", x = 90, y = 378, w = 56) # Room desp
-
-
+        pdf.image(f".{ap.room}", x = 41, y = 15, w = 48) # Room ant
+        pdf.image(f"./media/catalogo/room/{ap.room_new}", x = 135, y = 15, w = 48) # Room desp
         pdf.output(f'./media/{apartmentid}.pdf')
         time.sleep(2)
         return FileResponse(open(f'./media/{apartmentid}.pdf', 'rb'), content_type='application/pdf')
