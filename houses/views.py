@@ -287,19 +287,19 @@ from .mail import sendMail
 def iniciarComp(apartmentid):
     areas = ["ktc", "hall", "bath", "room"]
     
-    # render(request, 'houses/base.html')
-    # for a in areas:
-    #     to_edit = Apartamentos.objects.get(id=int(apartmentid))
-    #     if a == "ktc":
-    #             comparar(to_edit.ktc, "ktc", int(apartmentid))
+    render(request, 'houses/base.html')
+    for a in areas:
+        to_edit = Apartamentos.objects.get(id=int(apartmentid))
+        if a == "ktc":
+                comparar(to_edit.ktc, "ktc", int(apartmentid))
             
-    #     elif a == "hall":
+        elif a == "hall":
 
-    #         comparar(to_edit.hall, "hall", int(apartmentid))
-    #     elif a == "bath":
-    #         comparar(to_edit.bath, "bath", int(apartmentid))
-    #     elif a == "room":
-    #         comparar(to_edit.room, "room", int(apartmentid))
+            comparar(to_edit.hall, "hall", int(apartmentid))
+        elif a == "bath":
+            comparar(to_edit.bath, "bath", int(apartmentid))
+        elif a == "room":
+            comparar(to_edit.room, "room", int(apartmentid))
 
     ap = Apartamentos.objects.get(id=int(apartmentid))
     uid = ap.userid
