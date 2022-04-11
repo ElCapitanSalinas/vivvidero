@@ -349,7 +349,7 @@ def finalMail(apartmentid, email):
         pdf.add_page()
         pdf.set_font('Helvetica', '', 10)
         pdf.set_text_color(0, 0, 0)
-        pdf.image('./0001.jpg', x = 0, y = 0, w = 216, h = 279.4)
+        pdf.image('./media/0001.jpg', x = 0, y = 0, w = 216, h = 279.4)
 
         pdf.text(57, 26, ap.direccion) # BARRIO
         pdf.text(75, 26, ap.area) #AREA
@@ -394,7 +394,7 @@ def finalMail(apartmentid, email):
 
         pdf.set_font('Helvetica', '', 10)
         pdf.set_text_color(0, 0, 0)
-        pdf.image('./0002.jpg', x = 0, y = 0, w = 216, h = 279.4)
+        pdf.image('./media/0002.jpg', x = 0, y = 0, w = 216, h = 279.4)
 
         pdf.image(f".{ap.room}", x = 41, y = 15, w = 48) # Room ant
         pdf.image(f"./media/catalogo/room/{ap.room_new}", x = 135, y = 15, w = 48) # Room desp
