@@ -287,7 +287,6 @@ from .mail import sendMail
 def iniciarComp(apartmentid):
     areas = ["ktc", "hall", "bath", "room"]
     
-    render(request, 'houses/base.html')
     for a in areas:
         to_edit = Apartamentos.objects.get(id=int(apartmentid))
         if a == "ktc":

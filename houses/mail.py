@@ -6,9 +6,9 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 def sendMail(email, apid):
-    port = 587  # For SSL
-    smtp_server = "smtp-mail.outlook.com"
-    sender_email = "remodelacionvivvidero@outlook.com"  # Enter your address
+    port = 465  # For SSL
+    smtp_server = "smtp.gmail.com"
+    sender_email = "crosswindrepaints@gmail.com"  # Enter your address
 
     # return FileResponse(open(f'./media/{apartmentid}.pdf', 'rb'), content_type='application/pdf') PDF
 
@@ -54,6 +54,7 @@ def sendMail(email, apid):
     text = message.as_string()
 
     context = ssl.create_default_context()
-    with smtplib.SMTP_SSL("smtp-mail.outlook.com", 587, context=context) as server:
-        server.login(sender_email, "Vivvidero2022#")
+
+    with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+        server.login(sender_email, "CWR2020#")
         server.sendmail(sender_email, receiver_email, text)
