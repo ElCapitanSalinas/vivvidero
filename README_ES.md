@@ -1,6 +1,6 @@
 # VSISA - Vivvidero Software Image Similarity Application
 
-*Lee este archivo en otros lenguajes: [English](README.md), [Español](README_ES.md),
+*Lee este archivo en otros lenguajes: [English](README.md), [Español](README_ES.md)
 
 ###### Bienvenido lector, mediante este documento te estaremos explicando la anatomía de VSISA.
 
