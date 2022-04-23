@@ -10,6 +10,7 @@
 This is the base version of the product, for this function we've fully implemented this improvements:
 
   - Image similarity with 65% average success
+  - Base functions done 
   - Fully implemented user interface
   - Server performance improved by 80% compared with all the closed-alpha releases
   - Other changes
