@@ -6,6 +6,9 @@
 
 ![2](https://user-images.githubusercontent.com/63880943/164364813-32a9ba10-1e65-4569-b97d-e3aa936109d4.jpg)
 
+## Version
+
+La versión actual es v1.0 Beta
 
 ## ¿Que es VSISA?
 
