@@ -2,7 +2,7 @@
 
 
 ###### File management
-On this kind of files you'll see the information about the files inside.
+On this kind of files you'll see the information about the files inside the folder.
 
 ## Houses
 
