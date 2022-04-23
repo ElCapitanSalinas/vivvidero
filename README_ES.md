@@ -10,6 +10,8 @@
 
 La versión actual es v1.0 Beta
 
+*Revisa nuestro: [documento de versiones](VERSIONS.md)
+
 ## ¿Que es VSISA?
 
 Vivvidero Software Image Similarity Application es un software especializado en comparativa de imagenes, el objetivo es comparar una imagen subida por un usuario 
