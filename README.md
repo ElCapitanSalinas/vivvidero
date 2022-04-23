@@ -25,6 +25,10 @@ we will start the image processing, once finished the software will send an emai
 We’ve used 2 algorithms for the comparison, SIFT and SURF, both of them came with OpenCV. And we've added a basic instance segmentation to improve 
 the objects detection, this feature is still being tested for the last version.
 
+## File management
+
+On each folder you will find a readme file, in that document all the directory files information will be signed
+
 ## Dependencies
 
   We used this libraries:
