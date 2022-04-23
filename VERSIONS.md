@@ -3,7 +3,7 @@
 
 ###### Welcome reader, on this document we will explain you the versions history of our application.
 
-![2](https://user-images.githubusercontent.com/63880943/164364813-32a9ba10-1e65-4569-b97d-e3aa936109d4.jpg)
+![3](https://user-images.githubusercontent.com/63880943/164874110-07a91790-8b09-4402-8dca-7681b60eb647.jpg)
 
 ## v1.0.0 Beta Pre-Release
 
