@@ -25,6 +25,10 @@ una vez terminado el procesamiento de imagenes se enviará el correo correspondi
 Se utilizaron 2 algoritmos distintos para realizar la comparativa, SIFT y SURF, ambos vienen con OpenCV. Además se complementó con Instance Segmentation para identificar
 mejor cada objeto, sin embargo esta última característica sigue en revisión a la fecha de la última versión.
 
+## Manejo de archivos
+
+En cada carpeta encontrará un archivo readme, en dicho documento se consignará la información de los archivos almacenados en dicho directorio
+
 ## Dependencias
 
   Utilizamos las siguientes dependencias:
