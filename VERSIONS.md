@@ -7,13 +7,12 @@
 
 ## v1.0.0 Beta Pre-Release
 
-This is the base version of the product, for this function we've fully implemented this improvements:
+This is the base version of the product, for this function we've fully implemented this features:
 
   - Image similarity with 65% average success
   - Base functions done 
   - Fully implemented user interface
   - Server performance improved by 80% compared with all the closed-alpha releases
-  - Other changes
   - Bug fixes
   - Minor changes
     
