@@ -32,7 +32,7 @@ the objects detection, this feature is still being tested for the last version.
   - Pillow (Image management software)
   - Numpy (Numeric calculations software)
 
-## Instalación
+## Installation
 
   - Verify all the **Dependencies**
   - Do the project migrations, you must execute the following command:
