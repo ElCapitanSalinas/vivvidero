@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Remodelación virtual - Administrador</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'admin/main.css' %}">
+        <script src="{% static 'admin/main.js' %}"></script>
+    </head>
+    <body>
+        <div class="flex-container">
+            <div class="pt1">
+                <div class="title">Administrador de recursos digitales (ARD)</div>
+                <div class="title-caption">Debajo encontrarás los recursos de la aplicación divididos en secciones</div>
+            </div>
+            <div class="logo-vivvidero">
+                <img src="https://vivvidero.com/wp-content/uploads/2022/04/vivvidero-square--250x231.png" class="vivvi-logo" alt="">
+            </div>
+        </div>
+        <br>
+        <!-- <hr> -->
+        <br>
+        <div class="section bath">
+            <div class="flex-container">
+                <div class="section-title">Baños <span id="count">({{ bath }} imágenes cargadas)</span></div>
+                <div class="btn-see">Ver Galería</div>
+            </div>
+            
+        </div>
+        <div class="section">
+            <div class="flex-container">
+                <div class="section-title">Cocinas <span id="count">({{ ktc }} imágenes cargadas)</span></div>
+                <div class="btn-see">Ver Galería</div>
+            </div>
+            
+        </div>
+        <div class="section">
+            <div class="flex-container">
+                <div class="section-title">Salas / Sala comedor <span id="count">({{ hall }} imágenes cargadas)</span></div>
+                <div class="btn-see">Ver Galería</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="flex-container">
+                <div class="section-title">Habitaciones <span id="count">({{ room }} imágenes cargadas)</span></div>
+                <div class="btn-see">Ver Galería</div>
+            </div>
+            
+        </div>
+        
+        <br>
+        <hr>
+        <br>
+        <div class="flex-container">
+            <div class="part1">
+                <div class="title">Administrador de consultas realizadas</div>
+                <div class="title-caption">Allí encontrarás todos los apartamentos creados por los usuarios en la aplicación</div>
+            </div>
+            <div class="btn-see">Ver consultas</div>
+        </div>
+        
+        
+    </body>
+</html>

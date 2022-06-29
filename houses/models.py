@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractBaseUser
 
 # Create your models here.
 class User(models.Model):
@@ -40,4 +41,9 @@ class Estadisticas(models.Model):
     sav = models.CharField("similitude average", max_length=200)
     efc = models.CharField("efficiency", max_length=200)
 
+class AdminUser(AbstractBaseUser, models.Model):
+    # id = models.CharField(max_length=200)
+    nombre = models.CharField(max_length=200)
+    correo = models.CharField(max_length=200)
+    contrasena = models.CharField(max_length=200)
 

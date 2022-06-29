@@ -1,11 +1,12 @@
 
 
+from distutils.log import error
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.http import FileResponse, Http404
 
 # from .models import User
-from .models import User, Apartamentos, Estadisticas
+from .models import User, Apartamentos, Estadisticas, AdminUser
 
 # Create your views here.
 from django.http import HttpResponse
@@ -479,4 +480,73 @@ def verpdf(request):
 #     }
 #     return render(request, 'houses/index.html', context)
 
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import check_password
+
+from django.contrib.auth import authenticate, login
+
+def admin(request):
+    if request.method == 'POST':
+        mail = request.POST['email']
+        password = request.POST['password']
+
+        useradmin = AdminUser.objects.get(correo=mail)
+
+        if check_password(password, useradmin.contrasena):
+            DIR = './media/catalogo/ktc/'
+            lenktc = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])-1
+
+            DIR = './media/catalogo/bath/'
+            lenbath = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])-1
+
+            DIR = './media/catalogo/hall/'
+            lenhall = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])-1
+
+            DIR = './media/catalogo/room/'
+            lenroom = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])-1
+
+            # Redirect to a success page.
+            return render(request, 'admin/admin.html', {'ktc': lenktc, 'bath': lenbath, 'hall': lenhall, 'room': lenroom})
+        else:
+            return render(request, 'admin/login.html', {})
+    else:
+        return render(request, 'admin/login.html', {})
+            
+
+       
+
+def adminreg(request):
+    
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+
+            # print(request.POST['fullname'])
+            # print(request.POST['name'])
+            # print(request.POST['mail'])
+            # print(request.POST['password'])
+            # print(request.POST['password2'])    
+
+            if request.POST['password'] == request.POST['password2']:
+                clearPassNoHash = request.POST['password']
+                varhash = make_password(clearPassNoHash, None, 'md5')
+                print(varhash)
+                admin = AdminUser(nombre = request.POST['name'], correo = request.POST['mail'], contrasena = varhash)
+                admin.save()
+                print("GUARDADO")
+                return HttpResponseRedirect(f'/admin/')
+            else:
+                return render(request, 'admin/register.html', {'error': 'La contraseña no coincide'})
+
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            #return HttpResponseRedirect(f'/houses/newhouse/?name={user.nombre}&uid={user.id}')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NameForm()
+
+
+
+    return render(request, 'admin/register.html', {})
 

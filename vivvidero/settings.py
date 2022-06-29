@@ -136,3 +136,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Base url to serve media files
 MEDIA_URL = '/media/'
+
+#The Hasher you are using
+PASSWORD_HASHERS = (
+    'django.contrib.auth.hashers.MD5PasswordHasher',
+)

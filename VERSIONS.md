@@ -17,8 +17,3 @@ This is the base version of the product, for this function we've fully implement
   - Minor changes
     
   
-  
-
-
- 
-

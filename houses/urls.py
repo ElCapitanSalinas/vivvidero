@@ -12,6 +12,8 @@ urlpatterns = [
     path('newhouse/images/', views.uploadimgs, name='imgs'),
     path('newhouse/final/', views.finalview, name='pdfgen'),
     path('newhouse/final/pdf/', views.verpdf, name='verpdf'),
+    path('admin/', views.admin, name='admin'),
+    path('admin/register/', views.adminreg, name='admin'),
     # path('', views.index, name='index'),
     # path('/user/', views.user, name='user'),
 ]
