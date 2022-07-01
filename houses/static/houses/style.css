@@ -610,7 +610,8 @@ li {
 ul {
     text-align: justify;
     margin-left: -2vh;
-    width: 90%;
+    width: 70%;
+    height: auto;
 }
 
 .first-text {
@@ -622,6 +623,15 @@ ul {
     left: 0;
     right: 0;
     margin: 0 auto;
+}
+
+#image-success {
+    display: none;
+    color: green;
+}
+
+#image-success p {
+    font-size: 25px;
 }
 
 .center-spine {
