@@ -43,7 +43,7 @@ body {
 }
 
 .spacer {
-    height: 5vh;
+    height: 3vh;
     /* background-color: violet; */
 }
 
@@ -247,7 +247,7 @@ label {
     color: #203F3C;
     text-align: center;
     font-size: 1.5vw;
-    margin-top: 10vh;
+    margin-top: 5vh;
 }
 
 .form-container {
@@ -807,6 +807,48 @@ ul {
     cursor: pointer;
     transition: 0.3s;
 }
+
+
+
+.pdf-btn {
+    padding: 1vh 1vw;
+    font-size: 1vw;
+    background-color: #203F3C;
+    width: 5vw;
+    color: white;
+    text-align: center;
+    border-radius: 15px;
+    margin-top: 1vh;
+    cursor: pointer;
+    transition: 0.3s;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    margin-top: 5vh;
+}
+
+.disabled-btn {
+    padding: 1vh 1vw;
+    font-size: 1vw;
+    background-color: #d8d8d8;
+    width: 15vw;
+    color: darkgray;
+    text-align: center;
+    border-radius: 15px;
+    margin-top: 1vh;
+    cursor: default;
+    transition: 0.3s;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    margin-top: 5vh;
+}
+
+
+.pdf-btn:hover {
+    transform: scale(1.1, 1.1);
+}
+
 
 .card-inner-btn:hover {
     transform: scale(1.1, 1.1);

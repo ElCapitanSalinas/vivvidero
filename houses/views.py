@@ -285,7 +285,7 @@ def uploadimgs(request):
 
 from .mail import sendMail
 
-def iniciarComp(apartmentid):
+def iniciarComp(apartmentid, request):
     areas = ["ktc", "hall", "bath", "room"]
     
     for a in areas:
@@ -315,10 +315,6 @@ def iniciarComp(apartmentid):
 def finalview(request):
     areas = ["ktc", "hall", "bath", "room"]
     apartmentid = request.GET['id']
-    
-    # render(request, 'houses/base.html')
-    compare = threading.Thread(target=iniciarComp, name="Downloader", args=(apartmentid,))
-    compare.start()
 
     ap = Apartamentos.objects.get(id=int(apartmentid))
     uid = ap.userid
@@ -326,7 +322,25 @@ def finalview(request):
     user = User.objects.get(id=int(uid))
     email = user.correo
 
-    return render(request, 'houses/final.html', {'email': email})
+    
+    if path.exists(f"./media/{apartmentid}.pdf"):
+        # print("Hola")
+        return render(request, 'houses/final.html', {'email': email, 'apid': apartmentid, 'message': 'true',})
+    else:
+        if ap.process == "none":
+            compare = threading.Thread(target=iniciarComp, name="Downloader", args=(apartmentid, request))
+            compare.start()
+            
+            ap.process = "En Proceso"
+            ap.save()
+            
+        return render(request, 'houses/final.html', {'email': email, 'apid': apartmentid})
+
+    # render(request, 'houses/base.html')
+
+    
+
+    
 
 import numpy as np
 from fpdf import FPDF
@@ -337,6 +351,8 @@ import time
 
 import os.path
 from os import path
+
+from django.shortcuts import redirect
 
 def finalMail(apartmentid, email):
     ap = Apartamentos.objects.get(id=int(apartmentid))
@@ -400,7 +416,11 @@ def finalMail(apartmentid, email):
         pdf.image(f"./media/catalogo/room/{ap.room_new}", x = 135, y = 15, w = 48) # Room desp
         pdf.output(f'./media/{apartmentid}.pdf')
 
-    sendMail(email, apartmentid)
+    # sendMail(email, apartmentid)
+
+    response = redirect(f'newhouse/final/pdf/?id={apartmentid}')
+    return response
+
     
 
 

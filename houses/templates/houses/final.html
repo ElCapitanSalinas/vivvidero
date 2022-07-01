@@ -12,8 +12,8 @@
         <div class="circle etapa1 checked"><i class="fas fa-check"></i></div>
         <!-- <div class="circle etapa1"><i class="fas fa-check"></i></div> -->
         <div class="line-1 checked"></div>
-        <div class="circle etapa2">2</div>
-        <div class="line-2"></div>
+        <div class="circle etapa2 checked">2</div>
+        <div class="line-2 checked"></div>
         <div class="circle etapa3">3</div>
     </div>
 
@@ -30,7 +30,43 @@
         deseas.
     </div>
         
+
+    <!-- <h6 style="position: absolute; color: red; text-align: center; font-style: italic; font-weight: bold; top: 84vh;">Hola</h6> -->
+
+    {% block messages %}
+        {% if message %}
+            <form action="pdf/" id="seepdf" method="get">
+                <input type="hidden" name="id" value="{{apid}}">
+                <input type="submit" class="pdf-btn" style="display:none" value="Ver PDF">
+            </form>
+        
+            <div class="pdf-btn">Ver PDF</div>
+        {% else %}
+            <br>
+            <br>
+            <br>
+            <center>
+            <img src="https://i.stack.imgur.com/kOnzy.gif" width="60px">
+            </center>
+            <br>
+            <div class="disabled-btn">Ver PDF (Tiempo aprox. 5-8 mins)</div>
+        {% endif %}
+    {% endblock %}
+    
     <br>
     <br>
     <br>
+
+    <script>
+        setTimeout(function(){
+        window.location.reload(1);
+        }, 10000);
+
+
+        $(".pdf-btn").click(function (e) { 
+            e.preventDefault();
+            document.getElementById("seepdf").submit()
+        });
+    
+    </script>
 {% endblock %}

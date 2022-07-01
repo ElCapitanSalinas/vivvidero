@@ -31,6 +31,8 @@ class Apartamentos(models.Model):
     room = models.ImageField(upload_to='images/', null=True)
     room_new = models.ImageField(upload_to='images/', null=True)
 
+    process = models.ImageField(max_length=200, default='none')
+
 
     def __str__(self):
         return self.userid

@@ -133,6 +133,13 @@ $(document).ready(function(){
     $('#imagefile').change(function() {
         $('#imgform').submit();
     });
+
+
+    $(".pdf-btn").click(function (e) { 
+        e.preventDefault();
+        $('#seepdf').submit();
+    });
+    
     
     $("select").on("input", function() {
         var data = $(this).data("type")
