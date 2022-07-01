@@ -63,6 +63,13 @@
 
       <div class="checkbox mb-3">
       </div>
+
+      {% block messages %}
+        {% if message %} <h6 style="position: absolute; color: red; text-align: center; font-style: italic; font-weight: bold; top: 84vh;">{{ message }}</h6>{% endif %}
+      {% endblock %}
+
+
+
       <button class="w-100 btn btn-lg btn-primary" type="submit">Registrar</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
     

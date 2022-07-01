@@ -510,25 +510,30 @@ def admin(request):
         mail = request.POST['email']
         password = request.POST['password']
 
-        useradmin = AdminUser.objects.get(correo=mail)
+        
 
-        if check_password(password, useradmin.contrasena):
-            DIR = './media/catalogo/ktc/'
-            lenktc = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])-1
+        try:
+            useradmin = AdminUser.objects.get(correo=mail)
+            if check_password(password, useradmin.contrasena):
+                DIR = './media/catalogo/ktc/'
+                lenktc = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])-1
 
-            DIR = './media/catalogo/bath/'
-            lenbath = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])-1
+                DIR = './media/catalogo/bath/'
+                lenbath = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])-1
 
-            DIR = './media/catalogo/hall/'
-            lenhall = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])-1
+                DIR = './media/catalogo/hall/'
+                lenhall = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])-1
 
-            DIR = './media/catalogo/room/'
-            lenroom = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])-1
+                DIR = './media/catalogo/room/'
+                lenroom = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])-1
+                # Redirect to a success page.
+                return render(request, 'admin/admin.html', {'ktc': lenktc, 'bath': lenbath, 'hall': lenhall, 'room': lenroom})
+            else:
+                return render(request, 'admin/login.html', {'message': 'Correo o Contraseña incorrectos',})
+        except AdminUser.DoesNotExist:
+            return render(request, 'admin/login.html', {'message': 'Correo o Contraseña incorrectos',})
 
-            # Redirect to a success page.
-            return render(request, 'admin/admin.html', {'ktc': lenktc, 'bath': lenbath, 'hall': lenhall, 'room': lenroom})
-        else:
-            return render(request, 'admin/login.html', {})
+       
     else:
         return render(request, 'admin/login.html', {})
             
@@ -540,22 +545,38 @@ def adminreg(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
 
-            # print(request.POST['fullname'])
             # print(request.POST['name'])
             # print(request.POST['mail'])
             # print(request.POST['password'])
             # print(request.POST['password2'])    
 
-            if request.POST['password'] == request.POST['password2']:
-                clearPassNoHash = request.POST['password']
-                varhash = make_password(clearPassNoHash, None, 'md5')
-                print(varhash)
-                admin = AdminUser(nombre = request.POST['name'], correo = request.POST['mail'], contrasena = varhash)
-                admin.save()
-                print("GUARDADO")
-                return HttpResponseRedirect(f'/admin/')
+            if request.POST['name']:
+                if request.POST['mail']:
+                    if request.POST['password']:
+                        if request.POST['password'] == request.POST['password2']:
+                            clearPassNoHash = request.POST['password']
+                            varhash = make_password(clearPassNoHash, None, 'md5')
+                            # print(varhash)
+
+                            try:
+                                entry = AdminUser.objects.get(correo=request.POST['mail'])
+                                return render(request, 'admin/register.html', {'message': 'El correo ya se encuentra registrado',})
+                            except AdminUser.DoesNotExist:
+                                admin = AdminUser(nombre = request.POST['name'], correo = request.POST['mail'], contrasena = varhash)
+                                admin.save()
+                                print("GUARDADO")
+                                return HttpResponseRedirect(f'/admin/')
+                               
+
+                            
+                        else:
+                            return render(request, 'admin/register.html', {'message': 'La contraseña no coincide',})
+                    else:
+                        return render(request, 'admin/register.html', {'message': 'Faltan campos por llenar',})
+                else:
+                    return render(request, 'admin/register.html', {'message': 'Faltan campos por llenar',})
             else:
-                return render(request, 'admin/register.html', {'error': 'La contraseña no coincide'})
+                return render(request, 'admin/register.html', {'message': 'Faltan campos por llenar',})
 
             # process the data in form.cleaned_data as required
             # ...
