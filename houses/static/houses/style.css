@@ -965,4 +965,44 @@ ul {
     .input-title {
         font-size: 2vw;
     }
+
+    .text-box ul {
+        margin-left: -5vh;
+    }
+
+    .upload-steps {
+        width: 80vw;
+        height: 40vh;
+        justify-content: space-evenly;
+    }
+
+    .house-item {
+        font-size: 3vw;
+    }
+
+    .first-text {
+        width: 100%;
+        font-size: 2vw;
+    }
+
+    .text-box-title {
+        font-size: 2vw;
+    }
+
+    .text-box ul li {
+        font-size: 2vw;
+    }
+
+    .text-box {
+        width: 120%;
+    }
+
+    .box-caption {
+        font-size: 2vw;
+    }
+
+    .box-separador {
+        width: 10vw;
+        height: 4px;
+    }
 }
