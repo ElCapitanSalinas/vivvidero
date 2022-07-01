@@ -304,6 +304,9 @@
                                 <div class="box-caption">Buscar en el ordenador</div>
                             </div>
                             <!-- <input type="submit"> -->
+                            <div id="image-success" class="image-succ">
+                                <p>image upload success</p>
+                            </div>
                         
                     </div>
 
@@ -350,7 +353,17 @@
     <script>
         document.getElementById("file").onchange = function() {
             
-            setTimeout(() => {document.getElementById("form").submit()}, 500);
+            $('#image-success').css("display", "block");
+            setTimeout(() => {document.getElementById("form").submit()}, 1000);
         }
+        // const imageSucces = () => {
+        //     if(document.getElementById("file").onchange){
+        //         $('#image-success').css("display", "block")
+        //     } else {
+        //         $('#image-success').css("display", "none")
+        //     }
+        //     setTimeout(() => {document.getElementById("form").submit()}, 500);
+        // }    
+        // imageSucces()
     </script>
 {% endblock %}
