@@ -50,8 +50,8 @@ body {
 .form-1 {
     position: absolute;
     margin-top: 0;
-    width: 70vw;
-    height: 94.1vh;
+    width: 90vw;
+    height: 100vh;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -84,7 +84,7 @@ body {
     margin: 0 auto;
     margin-top: 8vh;
     /* background-color: blue; */
-    width: 30vw;
+    width: 90vw;
 }
 
 /* width */
