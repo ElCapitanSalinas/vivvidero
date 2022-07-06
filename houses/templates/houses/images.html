@@ -47,7 +47,7 @@
                             
                                 <div class="upload-box">
                                     <label for="file">
-                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <i id="cargarImg" class="fas fa-cloud-upload-alt"></i>
                                     </label>
                                     <input type="file" id="file" name="document">
 
@@ -291,11 +291,12 @@
                             </ul>
                         </div>
                     </div>
+                    <!-- <img id="image-prev" src=".../houses/catalogo/banos/1.jpg" alt="img-01"> -->
                     <div class="upload-column upload">
                         <div class="box-caption first">Espacio: <span>Habitación</span></div>
                         <div class="box-separador"></div>
                         
-                            <div class="upload-box">
+                            <div class="upload-box" id="upload">
                                 <label for="file" class="cloud">
                                     <i class="fas fa-cloud-upload-alt"></i>
                                 </label>
@@ -304,10 +305,6 @@
                                 <div class="box-caption">Buscar en el ordenador</div>
                             </div>
                             <!-- <input type="submit"> -->
-                            <div id="image-success" class="image-succ">
-                                <p>image upload success</p>
-                            </div>
-                        
                     </div>
 
                     <!-- <form action="/houses/newhouse/images/?area={{area}}" method="post" enctype="multipart/form-data" >
@@ -351,19 +348,27 @@
             <br>
     
     <script>
-        document.getElementById("file").onchange = function() {
-            
-            $('#image-success').css("display", "block");
-            setTimeout(() => {document.getElementById("form").submit()}, 1000);
+        let file = document.getElementById("file")
+        let filesss
+        let nameFile
+        file.onchange = function(e) {
+            filesss = file.files
+            //console.log(filesss)
+
+            let nameFile = filesss[0].name
+            //console.log(nameFile)
+            let img
+
+            fetch(`http://127.0.0.1:8000/houses/newhouse/images/${nameFile}`, {mode: 'cors'})
+            .then((res)=>{
+                console.log(res)
+                $(".box-separador").append(`<img src=${res.url} alt=${nameFile}>`)
+            })
+            .catch((console.error()))
+
+            //$(".box-separador").append(`<img src=${nameFile} alt=${nameFile}>`)
+            $(".upload").append("<div> image upload success </div>").addClass("upload-success")
+            setTimeout(() => {document.getElementById("form").submit()}, 40000);
         }
-        // const imageSucces = () => {
-        //     if(document.getElementById("file").onchange){
-        //         $('#image-success').css("display", "block")
-        //     } else {
-        //         $('#image-success').css("display", "none")
-        //     }
-        //     setTimeout(() => {document.getElementById("form").submit()}, 500);
-        // }    
-        // imageSucces()
     </script>
 {% endblock %}
