@@ -356,17 +356,21 @@
             //console.log(filesss)
 
             let nameFile = filesss[0].name
-            //console.log(nameFile)
-            let img
 
-            fetch(`http://127.0.0.1:8000/houses/newhouse/images/${nameFile}`, {mode: 'cors'})
-            .then((res)=>{
-                console.log(res)
-                $(".box-separador").append(`<img src=${res.url} alt=${nameFile}>`)
-            })
-            .catch((console.error()))
+            // let imageUpload = localStorage.setItem('imagen', nameFile)
+            // let imageLs = localStorage.getItem('imagen')
+            // console.log(imageLs)
+            console.log(nameFile)
+            //let img
 
-            //$(".box-separador").append(`<img src=${nameFile} alt=${nameFile}>`)
+            // fetch(`http://127.0.0.1:8000/houses/newhouse/images/${nameFile}`, {mode: 'cors'})
+            // .then((res)=>{
+            //     console.log(res)
+            //     $(".box-separador").append(`<img src=${res.url} alt=${nameFile}>`)
+            // })
+            // .catch((console.error()))
+
+            $(".box-separador").append(`<img src="http://127.0.0.1:8000/media/${nameFile}"" alt=${nameFile}>`)  
             $(".upload").append("<div> image upload success </div>").addClass("upload-success")
             setTimeout(() => {document.getElementById("form").submit()}, 7000);
         }
