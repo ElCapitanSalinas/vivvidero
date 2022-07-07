@@ -241,3 +241,17 @@ function updateComodities(comodities) {
         
     // })
 }
+
+// function updateImage () {
+//     let cargarImg = $(".fa-cloud-upload-alt")
+//     console.log(cargarImg)
+//     cargarImg.click(()=>{
+//         alert('holaa')
+//     })
+// }
+
+// updateImage()
+
+// // $("#cargarImg").click(function(){
+// //     console.log("CLICKK")
+// // })
