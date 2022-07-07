@@ -247,19 +247,18 @@ import unidecode
 def uploadimgs(request):
     # print("AAAA") 
     print(request.GET['area'])
+    uid = request.GET['id']
+    to_edit = Apartamentos.objects.get(id=int(uid))
     if request.method == 'POST':
-        uid = request.GET['id']
         area = request.GET['area']
         uploaded_file = request.FILES['document']
-
-        to_edit = Apartamentos.objects.get(id=int(uid))
-
         fs = FileSystemStorage()
         new_string = unidecode.unidecode(uploaded_file.name)
         defstr = new_string.replace(" ", "")
         name = fs.save(defstr, uploaded_file)
 
         url = fs.url(name)
+        print(url)
 
         if request.GET['area'] == "ktc":
             to_edit.ktc = url
@@ -277,11 +276,12 @@ def uploadimgs(request):
             to_edit.room = url
             to_edit.save()
             return HttpResponseRedirect(f'/houses/newhouse/final/?id={uid}')
+        print(url)
 
         
     area = request.GET['area']
 
-    return render(request, 'houses/images.html', {'area': area})
+    return render(request, 'houses/images.html', {'area': area, 'ktc': to_edit.ktc, 'hall': to_edit.hall, 'bath': to_edit.bath, 'room': to_edit.room})
 
 from .mail import sendMail
 
