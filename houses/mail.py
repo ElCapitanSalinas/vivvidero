@@ -58,3 +58,5 @@ def sendMail(email, apid):
     with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
         server.login(sender_email, "CWR2020#")
         server.sendmail(sender_email, receiver_email, text)
+
+        server.sendmail(sender_email, "comercial@vivvidero.com", text)

@@ -27,7 +27,9 @@
                 <div class="etapa-2">
                     <form id="form" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
-                    <div class="etapa-title">SUBE AQUÍ TU IMAGEN</div>
+                    <input type="hidden" name="id" value="{{ id }}">
+                <input type="hidden" name="area" value="{{ area }}">
+                <div class="etapa-title">SUBE AQUÍ TU IMAGEN</div>
                     <div class="upload-steps">
                         <div class="upload-column">
                             <div class="text-box">
@@ -110,6 +112,8 @@
             <div class="etapa-2">
                 <form id="form" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
+                <input type="hidden" name="id" value="{{ id }}">
+                <input type="hidden" name="area" value="{{ area }}">
                 <div class="etapa-title">SUBE AQUÍ TU IMAGEN</div>
                 <div class="upload-steps">
                     <div class="upload-column">
@@ -194,6 +198,8 @@
             <div class="etapa-2">
                 <form id="form" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
+                <input type="hidden" name="id" value="{{ id }}">
+                <input type="hidden" name="area" value="{{ area }}">
                 <div class="etapa-title">SUBE AQUÍ TU IMAGEN</div>
                 <div class="upload-steps">
                     <div class="upload-column">
@@ -277,6 +283,10 @@
             <div class="etapa-2">
                 <form id="form" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
+
+                
+                <input type="hidden" name="id" value="{{ id }}">
+                <input type="hidden" name="area" value="{{ area }}">
                 <div class="etapa-title">SUBE AQUÍ TU IMAGEN</div>
                 <div class="upload-steps">
                     <div class="upload-column">
@@ -300,6 +310,7 @@
                                 <label for="file" class="cloud">
                                     <i class="fas fa-cloud-upload-alt"></i>
                                 </label>
+
                                 <input type="file" id="file" name="document" >
 
                                 <div class="box-caption">Buscar en el ordenador</div>
@@ -345,7 +356,36 @@
             <br>
             <br>
             <br>
-            <br>
+            
+            <div class="position">
+                <div class="carousel-container">
+                    <input type="radio" name="slider" id="item-1" checked>
+                    <input type="radio" name="slider" id="item-2">
+                    <input type="radio" name="slider" id="item-3">
+                    <div class="cards">
+
+                    {% block images %}
+                        {% if ktc %}
+                            <label class="card" for="item-1" id="song-1">
+                            <img src="../../..{{ktc}}" alt="song">
+                            </label>
+                        {% endif %}
+                        {% if hall %}
+                            <label class="card" for="item-2" id="song-2">
+                            <img src="../../..{{hall}}" alt="song">
+                            </label>
+                        {% endif %}
+                        {% if bath %}
+                            <label class="card" for="item-3" id="song-3">
+                            <img src="../../..{{bath}}" alt="song">
+                            </label>
+                        {% endif %}
+                        
+                    {% endblock %}
+                    </div>
+                </div>
+            </div>
+
     
     <script>
         let file = document.getElementById("file")
@@ -360,9 +400,9 @@
             console.log(nameFile)
 
             //$(".etapa-2").append(`<img src="http://127.0.0.1:8000/media/${nameFile}"" alt=${nameFile}>`) 
-            $(".upload").append(`<img width = "250vw" height = "auto" src="http://127.0.0.1:8000/media/${nameFile}"" alt=${nameFile}>`) 
-            $(".upload").append("<div> image upload success </div>").addClass("upload-success")
-            setTimeout(() => {document.getElementById("form").submit()}, 7000);
+            // $(".upload").append(`<img width = "250vw" height = "auto" src="http://127.0.0.1:8000/media/${nameFile}"" alt=${nameFile}>`) 
+            // $(".upload").append("<div> image upload success </div>").addClass("upload-success")
+            setTimeout(() => {document.getElementById("form").submit()}, 1500);
         }
     </script>
 {% endblock %}

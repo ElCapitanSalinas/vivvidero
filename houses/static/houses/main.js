@@ -49,13 +49,13 @@ $(document).ready(function(){
         
         if (data !== "Estrato" && data !== "Comodidades") {
             var offset = $(this).offset();
-            var top = offset.top;
+            var top = offset.top; 
             var left = offset.left;
             
             $(".estrato-box").animate({opacity: '0'}, 0, function(){});
             var viewportWidth = $("body").innerWidth();
     
-            var total = ((left / viewportWidth) * 100) - 15.2
+            var total = ((left / viewportWidth) * 100)
             $(".input-box").css({left: total+"vw", position:'absolute'});
             $(".input-title").html(data);
             

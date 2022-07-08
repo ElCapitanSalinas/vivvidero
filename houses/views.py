@@ -246,11 +246,12 @@ def newhouse(request):
 import unidecode
 def uploadimgs(request):
     # print("AAAA") 
-    print(request.GET['area'])
+
     uid = request.GET['id']
     to_edit = Apartamentos.objects.get(id=int(uid))
     if request.method == 'POST':
-        area = request.GET['area']
+        area = request.POST['area']
+        apid = request.POST['id']
         uploaded_file = request.FILES['document']
         fs = FileSystemStorage()
         new_string = unidecode.unidecode(uploaded_file.name)
@@ -258,30 +259,29 @@ def uploadimgs(request):
         name = fs.save(defstr, uploaded_file)
 
         url = fs.url(name)
-        print(url)
 
-        if request.GET['area'] == "ktc":
+        to_edit = Apartamentos.objects.get(id=int(apid))
+        if request.POST['area'] == "ktc":
             to_edit.ktc = url
             to_edit.save()
-            return HttpResponseRedirect(f'/houses/newhouse/images/?id={uid}&area=hall')
-        elif request.GET['area'] == "hall":
+            return render(request, 'houses/images.html', {'area': "hall", 'id': request.POST['id'],'ktc': to_edit.ktc, 'hall': to_edit.hall, 'bath': to_edit.bath, 'room': to_edit.room})
+        elif request.POST['area'] == "hall":
             to_edit.hall = url
             to_edit.save()
-            return HttpResponseRedirect(f'/houses/newhouse/images/?id={uid}&area=bath')
-        elif request.GET['area'] == "bath":
+            return render(request, 'houses/images.html', {'area': "bath", 'id': request.POST['id'],'ktc': to_edit.ktc, 'hall': to_edit.hall, 'bath': to_edit.bath, 'room': to_edit.room})
+        elif request.POST['area'] == "bath":
             to_edit.bath = url
             to_edit.save()
-            return HttpResponseRedirect(f'/houses/newhouse/images/?id={uid}&area=room')
-        elif request.GET['area'] == "room":
+            return render(request, 'houses/images.html', {'area': "room", 'id': request.POST['id'],'ktc': to_edit.ktc, 'hall': to_edit.hall, 'bath': to_edit.bath, 'room': to_edit.room})
+        elif request.POST['area'] == "room":
             to_edit.room = url
             to_edit.save()
             return HttpResponseRedirect(f'/houses/newhouse/final/?id={uid}')
-        print(url)
-
         
+        # /media/92fd6f1b-8e57-4b00-802b-46c8b20a288f_rHOv5ct.jpg
     area = request.GET['area']
 
-    return render(request, 'houses/images.html', {'area': area, 'ktc': to_edit.ktc, 'hall': to_edit.hall, 'bath': to_edit.bath, 'room': to_edit.room})
+    return render(request, 'houses/images.html', {'area': area, 'id': request.GET['id'],'ktc': to_edit.ktc, 'hall': to_edit.hall, 'bath': to_edit.bath, 'room': to_edit.room})
 
 from .mail import sendMail
 
