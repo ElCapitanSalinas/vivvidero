@@ -56,7 +56,7 @@ body {
     right: 0;
     margin: 0 auto;
     /* background-color: wheat; */
-    overflow-x: hidden; 
+    overflow-x: visible; 
     opacity: 0;
 }
 
