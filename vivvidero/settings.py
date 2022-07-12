@@ -81,14 +81,24 @@ WSGI_APPLICATION = 'vivvidero.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'mydatabase',
+#     }
+
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'matias92_renovadora_virtual',
+        'USER': 'matias92',
+        'PASSWORD': 'matute1592',
+        'HOST': 'postgresql-matias92.alwaysdata.net',
+        'PORT': 5432
     }
-
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
