@@ -15,9 +15,9 @@ TYPE =(
 class NameForm(forms.Form):
     customer = forms.TypedChoiceField(choices = CUSTOMERS, coerce = int)
     type = forms.TypedChoiceField(choices = TYPE, coerce = int)
-    fullname = forms.CharField(label='Nombre completo:', max_length=100)
+    fullname = forms.CharField(label='Name:', max_length=100)
     email = forms.EmailField()
-    phone = forms.CharField(label='Número de teléfono:', max_length=100)
+    phone = forms.CharField(label='Phone number:', max_length=100)
 
 class UploadFileForm(forms.Form):
     # title = forms.CharField(max_length=50)
