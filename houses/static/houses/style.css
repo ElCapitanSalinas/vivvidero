@@ -1217,4 +1217,9 @@ input[type=radio] {
         top: 15vh;
         overflow: scroll;
     }
+
+    .pdf-btn {
+        font-size: 2vw;
+        width: 10vw;
+    }
 }
