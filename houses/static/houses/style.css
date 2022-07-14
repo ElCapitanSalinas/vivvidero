@@ -1061,10 +1061,12 @@ input[type=radio] {
 
     .form-title {
         font-size: 4.5vw;
+        width: 70%;
     }
 
     .form-caption {
         font-size: 3.4vw;
+        width: 70%;
     }
 
     .form-1 {
@@ -1193,5 +1195,20 @@ input[type=radio] {
     .card-inner-btn {
         font-size: 2vw;
         width: 10vw;
+    }
+
+    .position {
+        position: absolute;
+        top: 2vh;
+        right: 60vw;
+    }
+
+    .etapa-2 {
+        margin-top: -3vh
+    }
+
+    .upload-success {
+        font-size: 2vw;
+        width: 25%;
     }
 }
