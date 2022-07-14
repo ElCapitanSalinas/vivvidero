@@ -1211,4 +1211,10 @@ input[type=radio] {
         font-size: 2vw;
         width: 25%;
     }
+
+    .final-caption {
+        font-size: 3vw;
+        top: 15vh;
+        overflow: scroll;
+    }
 }
