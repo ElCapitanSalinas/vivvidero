@@ -159,7 +159,8 @@ label {
     display: block;
     opacity: 1;
     /* background-color: wheat; */
-    /* overflow: auto; */
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .progress-bar {
