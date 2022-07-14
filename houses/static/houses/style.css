@@ -160,7 +160,7 @@ label {
     opacity: 1;
     /* background-color: wheat; */
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: hidden;   
 }
 
 .progress-bar {
