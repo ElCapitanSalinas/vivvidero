@@ -1045,7 +1045,7 @@ input[type=radio] {
     margin-top: 20vh;
 }
 
-@media only screen and (width: 375px) {
+@media only screen and (width: 425px) {
     .logo {
         width: 60%;
         height: auto;
