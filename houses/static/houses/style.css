@@ -761,7 +761,8 @@ ul {
     border-radius: 15px;
     background-color: #fff;
     overflow: hidden;
-    width: 50%;
+    width: 30%;
+    height: auto;
 }
 
 .card-title {
@@ -906,9 +907,9 @@ input[type=radio] {
     opacity: 1;
     z-index: 1;
     
-    img {
+    /* img {
       box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
-    }
+    } */
   }
   
   .player {
@@ -1221,5 +1222,9 @@ input[type=radio] {
     .pdf-btn {
         font-size: 2vw;
         width: 10vw;
+    }
+
+    .comodities-card {
+        width: 35%;
     }
 }
