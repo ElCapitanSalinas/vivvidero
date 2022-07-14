@@ -119,9 +119,11 @@
                         </div>
                         <div class="input-save">Guardar</div>
                     </div>
+
+                    
                     
                     {% block messages %}
-                        {% if message %}<h6 style="position: absolute; color: red; text-align: center; font-style: italic; font-weight: bold; top: 84vh;">{{ error }}</h6>{% endif %}
+                        {% if error %}<h3 style="width: 100%; color: red; text-align: center; font-style: italic; font-weight: bold; top: 84vh;">{{ error }}</h3>{% endif %}
                     {% endblock %}
                     
                     

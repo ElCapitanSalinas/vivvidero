@@ -221,19 +221,18 @@ def newhouse(request):
     if request.method == 'POST':
         # check whether it's valid:
             if request.POST['area'] and request.POST['price']:
-                priceremo = price(int(request.POST['area']))
-                print(priceremo)
-                pricetotal = priceremo + int(request.POST['price'])
-                print(pricetotal)
-
-                apartment = Apartamentos(userid = request.GET['uid'], direccion = request.POST['neighborhood'], area = request.POST['area'], precio = request.POST['price'], precio_nuevo = pricetotal, precio_remo = priceremo, estrato = "Not defined", comodidades = request.POST['comodities'])
-                apartment.save()
-
-                # process the data in form.cleaned_data as required
-                # ...
-                # redirect to a new URL:
-                # compare()
-                return HttpResponseRedirect(f'/houses/newhouse/images/?id={apartment.id}&area=ktc')
+                area = request.POST['area']
+                precio = request.POST['price']
+                if area.isnumeric() and precio.isnumeric():
+                    priceremo = price(int(request.POST['area']))
+                    print(priceremo)
+                    pricetotal = priceremo + int(request.POST['price'])
+                    print(pricetotal)
+                    apartment = Apartamentos(userid = request.GET['uid'], direccion = request.POST['neighborhood'], area = request.POST['area'], precio = request.POST['price'], precio_nuevo = pricetotal, precio_remo = priceremo, estrato = "Not defined", comodidades = request.POST['comodities'])
+                    apartment.save()
+                    return HttpResponseRedirect(f'/houses/newhouse/images/?id={apartment.id}&area=ktc')
+                else:
+                    return render(request, 'houses/houseinfo.html', {'error': "Debes ingresar un valor númerico válido"})
             else: 
                 return render(request, 'houses/houseinfo.html', {'error': "Te falta completar algunos campos"})
     # if a GET (or any other method) we'll create a blank form
