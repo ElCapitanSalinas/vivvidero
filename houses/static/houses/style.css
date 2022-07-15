@@ -879,38 +879,40 @@ input[type=radio] {
     width: 40%;
     height: 30%;
     /* background-color: black; */
-    top: 20%;
-    transform: translate(0, -50%);
+    top: 5%;
+    /* transform: translate(0, -50%); */
   }
   
   img {
-    /* width: 10vw; */
-    height: 50%;
+    /* width: 10vw;
+    height: 50%; */
+    width: 50%;
+    height: auto;
     border-radius: 10px;
     object-fit: cover;
   }
   
-  #item-1:checked ~ .cards #song-3, #item-2:checked ~ .cards #song-1, #item-3:checked ~ .cards #song-2 {
+  /* #item-1:checked ~ .cards #song-3, #item-2:checked ~ .cards #song-1, #item-3:checked ~ .cards #song-2 {
     transform: translatex(-40%) scale(.8);
     opacity: .4;
     z-index: 0;
-  }
+  } */
   
-  #item-1:checked ~ .cards #song-2, #item-2:checked ~ .cards #song-3, #item-3:checked ~ .cards #song-1 {
+  /* #item-1:checked ~ .cards #song-2, #item-2:checked ~ .cards #song-3, #item-3:checked ~ .cards #song-1 {
     transform: translatex(40%) scale(.8);
     opacity: .4;
     z-index: 0;
-  }
+  } */
   
-  #item-1:checked ~ .cards #song-1, #item-2:checked ~ .cards #song-2, #item-3:checked ~ .cards #song-3 {
+  /* #item-1:checked ~ .cards #song-1, #item-2:checked ~ .cards #song-2, #item-3:checked ~ .cards #song-3 {
     transform: translatex(0) scale(1);
     opacity: 1;
-    z-index: 1;
+    z-index: 1; */
     
     /* img {
       box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
     } */
-  }
+  /* } */
   
   .player {
     /* background-color: #fff; */
@@ -1062,12 +1064,12 @@ input[type=radio] {
 
     .form-title {
         font-size: 4.5vw;
-        width: 70%;
+        width: 50%;
     }
 
     .form-caption {
         font-size: 3.4vw;
-        width: 70%;
+        width: 57%;
     }
 
     .form-1 {
@@ -1080,7 +1082,7 @@ input[type=radio] {
 
     .info-upload {
         width: 90vw;
-        height: 94.1vh;
+        height: 100vh;
     }
 
     .progress-bar {
@@ -1201,7 +1203,7 @@ input[type=radio] {
     .position {
         position: absolute;
         top: 2vh;
-        right: 60vw;
+        right: 75vw;
     }
 
     .etapa-2 {
@@ -1226,5 +1228,17 @@ input[type=radio] {
 
     .comodities-card {
         width: 35%;
+    }
+
+    .img-uploaded {
+        width: 2vw;
+        height: auto;
+        top: 5vw;
+    }
+
+    .cards img {
+        width: 160%;
+        height: auto;
+        top: 30%;
     }
 }
