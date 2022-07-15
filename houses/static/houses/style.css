@@ -1241,4 +1241,12 @@ input[type=radio] {
         height: auto;
         top: 30%;
     }
+
+    .paso2 {
+        top: 100vh;
+    }
+
+    .etapa1-form {
+        margin-top: 0vh;
+    }
 }
