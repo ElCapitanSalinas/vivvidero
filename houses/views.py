@@ -7,7 +7,6 @@ from django.http import FileResponse, Http404
 
 # from .models import User
 from .models import User, Apartamentos, Estadisticas, AdminUser
-
 # Create your views here.
 from django.http import HttpResponse
 from .forms import NameForm, UploadFileForm, ImgForm
@@ -53,22 +52,20 @@ def comparar(baseimg, area, apartmentid):
     image_to_compare = cv2.imread("./media/catalogo/"+area+"/"+compname+"")
     print("./media/catalogo/"+area+"/"+compname+"")
 
-    # if original.shape[1] > 2800 or original.shape[0] > 2800:
-    #     scale_percent = 10
-    # elif original.shape[1] > 2000 or original.shape[0] > 2000:
-    #     scale_percent = 25
-    # elif original.shape[1] > 1500 or original.shape[0] > 1500:
-    #     scale_percent = 50
-    # else:
-    #     scale_percent = 100
+    if original.shape[1] > 2500:
+        scale_percent = 10
+    elif original.shape[1] > 1700:
+        scale_percent = 25
+    else:
+        scale_percent = 50 # percent of original size
 
-
-    width = int(image_to_compare.shape[1] * 100 / 100)
-    height = int(image_to_compare.shape[0] * 100 / 100)
+    width = int(original.shape[1] * scale_percent / 100)
+    height = int(original.shape[0] * scale_percent / 100)
     dim = (width, height)
     
     # resize image
     resized = cv2.resize(original, dim, interpolation = cv2.INTER_AREA)
+    
 
     # image_to_compare = cv2.resize(image_to_compare, dim, interpolation = cv2.INTER_AREA)
     print('Resized Dimensions : ',resized.shape)
@@ -535,9 +532,47 @@ def admin(request):
        
     else:
         return render(request, 'admin/login.html', {})
-            
 
-       
+
+def admview(request):
+    files = []
+    area = request.GET['space']
+    DIR = f'./media/catalogo/{area}/'
+    area_lenght = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])-1
+
+    if request.method == 'POST':
+        # uploaded_file = request.FILES['document']
+
+        files = request.FILES.getlist('document')
+        folder= f'./media/catalogo/{area}'
+
+        for file in files:
+            area_lenght = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])-1
+            fs = FileSystemStorage(location=folder)
+            int_name = f"{area_lenght+1}.jpg"
+            name = fs.save(int_name, file)
+            url = fs.url(name)
+        
+    area = request.GET['space']
+    
+    DIR = f'./media/catalogo/{area}/'
+    area_lenght = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])-1
+
+    path = f'./media/catalogo/{area}/'
+    file_list = sorted([os.path.splitext(filename)[0] for filename in os.listdir(path)], key=len)
+    # print(file_list)
+
+    if area == "bath":
+        label = "Baños"
+    elif area == "room":
+        label = "Habitaciones"
+    elif area == "ktc":
+        label = "Cocinas"
+    elif area == "hall":
+        label = "Salas / Comedor"
+    # print(file_list)
+
+    return render(request, 'admin/gallery.html', {'space': area, 'label': label, 'len': area_lenght, 'imgs': file_list, 'uploaded_imgs': len(files)})
 
 def adminreg(request):
     

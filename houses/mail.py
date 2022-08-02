@@ -55,8 +55,13 @@ def sendMail(email, apid):
 
     context = ssl.create_default_context()
 
-    with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
-        server.login(sender_email, "CWR2020#")
-        server.sendmail(sender_email, receiver_email, text)
 
-        server.sendmail(sender_email, "comercial@vivvidero.com", text)
+    smtpserver = smtplib.SMTP("smtp.gmail.com", 587)
+    smtpserver.ehlo()
+    smtpserver.starttls()
+    smtpserver.ehlo()
+    smtpserver.login('crosswindrepaints@gmail.com', 'CWR2020#')
+    smtpserver.sendmail('crosswindrepaints@gmail.com', receiver_email, text)
+    # with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+        
+

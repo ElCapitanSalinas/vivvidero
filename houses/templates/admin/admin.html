@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="{% static 'admin/main.css' %}">
+        
         <script src="{% static 'admin/main.js' %}"></script>
     </head>
     <body>
@@ -25,27 +26,27 @@
         <div class="section bath">
             <div class="flex-container">
                 <div class="section-title">Baños <span id="count">({{ bath }} imágenes cargadas)</span></div>
-                <div class="btn-see">Ver Galería</div>
+                <div class="btn-see" data-btn="bath">Ver Galería</div>
             </div>
             
         </div>
         <div class="section">
             <div class="flex-container">
                 <div class="section-title">Cocinas <span id="count">({{ ktc }} imágenes cargadas)</span></div>
-                <div class="btn-see">Ver Galería</div>
+                <div class="btn-see" data-btn="ktc">Ver Galería</div>
             </div>
             
         </div>
         <div class="section">
             <div class="flex-container">
                 <div class="section-title">Salas / Sala comedor <span id="count">({{ hall }} imágenes cargadas)</span></div>
-                <div class="btn-see">Ver Galería</div>
+                <div class="btn-see" data-btn="hall">Ver Galería</div>
             </div>
         </div>
         <div class="section">
             <div class="flex-container">
                 <div class="section-title">Habitaciones <span id="count">({{ room }} imágenes cargadas)</span></div>
-                <div class="btn-see">Ver Galería</div>
+                <div class="btn-see" data-btn="room">Ver Galería</div>
             </div>
             
         </div>
@@ -53,13 +54,13 @@
         <br>
         <hr>
         <br>
-        <div class="flex-container">
+        <!-- <div class="flex-container">
             <div class="part1">
                 <div class="title">Administrador de consultas realizadas</div>
                 <div class="title-caption">Allí encontrarás todos los apartamentos creados por los usuarios en la aplicación</div>
             </div>
             <div class="btn-see">Ver consultas</div>
-        </div>
+        </div> -->
         
         
     </body>
